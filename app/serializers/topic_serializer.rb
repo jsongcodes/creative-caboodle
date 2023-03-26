@@ -1,3 +1,3 @@
 class TopicSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :title, :image_url, :description
 end
