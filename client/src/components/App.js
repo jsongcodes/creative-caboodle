@@ -53,23 +53,16 @@ const App = () => {
             topics={topics}
           />
         </Route>
-
         <Route exact path="/topics/:id">
           <Topic
             userId={user.id}
             user={user}
-
-
             resources={resources}
             setResources={setResources}
-
-
-/>
+          />
         </Route>
 
-
-
-
+        {/* not working */}
         <Route
           exact
           path="/topics/:topic_id/resources/:id"

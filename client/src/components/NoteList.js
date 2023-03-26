@@ -30,7 +30,7 @@ const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResou
   return (
     <>
       <div>NoteList component</div>
-      <NoteForm userId={userId} />
+      {/* <NoteForm userId={userId} /> */}
       {/* <NoteCard /> */}
     </>
   );
