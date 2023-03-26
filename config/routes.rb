@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :topics, only: [:index, :show, :create]
   resources :resources, only: [:index, :show, :create]
   resources :users, onlly: [:index]
-  
+
+  get '/topics/:id/resources', to: 'topics#resources'
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
