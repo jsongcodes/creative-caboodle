@@ -4,14 +4,24 @@ import { Switch, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import TopicList from "./TopicList";
 import Login from "./Login";
-
 import TopicForm from "./TopicForm";
-import NoteList from "./NoteList";
 import Topic from "./Topic";
+import ResourceList from "./ResourceList";
+
+
+import Resource from "./Resource";
 
 const App = () => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [topics, setTopics] = useState([]);
+
+
+  const [resources, setResources] = useState([]);
+
+  const addNewTopic = (newTopic) => {
+    setTopics((topics) => [newTopic, ...topics]);
+  };
 
   useEffect(() => {
     fetch("/me").then((res) => {
@@ -21,6 +31,7 @@ const App = () => {
           setUser({
             id: user.id,
             username: user.username,
+            email: user.email,
           });
         });
       }
@@ -35,21 +46,56 @@ const App = () => {
 
   return (
     <>
-      <div>App component</div>
       <Navbar user={user} setUser={setUser} handleLogout={handleLogout} />
       <Switch>
         <Route exact path="/">
-          <TopicList />
+          <TopicList topics={topics} setTopics={setTopics} />
         </Route>
         <Route exact path="/newtopic">
-          <TopicForm />
+          <TopicForm
+            userId={user.id}
+            addNewTopic={addNewTopic}
+            topics={topics}
+          />
         </Route>
-        <Route exact path="/notes">
-          <NoteList />
-        </Route>
+        {/* <Route exact path="/notes">
+          <NoteList user={user} setUser={setUser} userId={user.id} topics={topics} setTopics={setTopics}/>
+        </Route> */}
+        {/* <Route exact path="/resources"></Route> */}
+        {/* <Route exact path="/resources">
+          <ResourceList/>
+        </Route> */}
         <Route exact path="/topics/:id">
-          <Topic />
+          <Topic
+            userId={user.id}
+            user={user}
+
+
+            resources={resources}
+            setResources={setResources}
+
+
+/>
         </Route>
+
+
+
+
+        <Route
+          exact
+          path="/topics/:topic_id/resources/:id"
+          render={({ match }) => (
+            <Resource
+              resource={resources.find(
+                (resource) => resource.id === parseInt(match.params.id)
+              )}
+              user={user}
+              // topicId={params.id}
+              // userId={userId}
+              setResources={setResources}
+            />
+          )}
+        ></Route>
       </Switch>
     </>
   );

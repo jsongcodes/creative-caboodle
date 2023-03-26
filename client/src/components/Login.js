@@ -20,8 +20,7 @@ const Login = ({ onLogin }) => {
             <button onClick={() => setShowLogin(true)}>log in</button>
           </>
         )}
-      <LoginForm />
-      <SignupForm />
+
     </>
   );
 };
