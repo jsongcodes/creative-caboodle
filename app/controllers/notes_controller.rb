@@ -41,6 +41,6 @@ class NotesController < ApplicationController
     end
 
     def note_params
-        params.permit(:resource_id, :title, :content)
+        params.permit(:user_id, :resource_id, :title, :content)
     end
 end

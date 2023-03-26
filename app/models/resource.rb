@@ -1,6 +1,12 @@
 class Resource < ApplicationRecord
-    has_one :note
+    has_many :notes
     belongs_to :topic
+    belongs_to :user
 
-    validates :website_url, presence: true
+    # # old
+    # has_one :note
+    # belongs_to :topic
+    # belongs_to :user
+
+    # validates :website_url, presence: true
 end

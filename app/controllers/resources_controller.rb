@@ -21,6 +21,6 @@ class ResourcesController < ApplicationController
     end
 
     def resource_params
-        params.permit(:topic_id, :video_url, :website_url)
+        params.permit(:topic_id, :user_id, :video_url, :website_url)
     end
 end
