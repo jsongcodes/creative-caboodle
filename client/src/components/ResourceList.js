@@ -5,9 +5,8 @@ const ResourceList = ({ topicId, userId, user, setResources, resources }) => {
   useEffect(() => {
     fetch(`/topics/${topicId}/resources`)
       .then((res) => res.json())
-      .then(setResources)
-      //resources is not being set into state
-      .then(console.log("resources: ", resources));
+      .then((resources) => setResources(resources))
+      //resources is an empty array
   }, [topicId]);
 
   const resourceList = [...resources].map((resource) => {
