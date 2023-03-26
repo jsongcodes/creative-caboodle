@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const TopicForm = ({ userId, addNewTopic, topics }) => {
   const [inputForm, setInputForm] = useState({
     title: "",
     image_url: "",
-    description: "",
-    // user_id: userId
+    description: ""
   });
 
   const handleChange = (e) => {

@@ -3,13 +3,11 @@ import { useParams } from "react-router-dom";
 import ResourceList from "./ResourceList";
 import ResourceForm from "./ResourceForm";
 
-import { Switch, Route } from "react-router-dom";
-import Resource from "./Resource";
-
 const Topic = (userId, user
   // , resources, setResources
   ) => {
   const [topicInfo, setTopicInfo] = useState([]);
+  //do i need to create a separate resources state?
   const [resources, setResources] = useState([]);
 
   const params = useParams();
@@ -22,26 +20,6 @@ const Topic = (userId, user
 
   return (
     <div className="main-container">
-
-
-      {/* <Switch>
-        <Route
-          exact
-          path="/topics/:topic_id/resources/:id"
-          render={({ match }) => (
-            <Resource
-              resource={resources.find(
-                (resource) => resource.id === parseInt(match.params.id)
-              )}
-              user={user}
-              topicId={params.id}
-              userId={userId}
-              setResources={setResources}
-            />
-          )}
-        ></Route>
-      </Switch> */}
-
       <div className="single-post-item">
         <h3 className="post-card-title">{topicInfo.title}</h3>
         <img src={topicInfo.image_url} className="postimage" alt="post" />
@@ -54,7 +32,6 @@ const Topic = (userId, user
         user={user}
         setResources={setResources}
         resources={resources}
-        user={user}
       />
       <ResourceForm
         topicId={params.id}

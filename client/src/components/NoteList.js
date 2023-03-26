@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResources}) => {
   const [notes, setNotes] = useState([]);
 
+  //needs fixing
   useEffect(() => {
     fetch("/me").then((res) => {
       if (res.ok) {

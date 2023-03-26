@@ -8,11 +8,12 @@ const Resource = ({ resource = {}, user }) => {
   return (
     <>
       <div>Resource component</div>
-      {/* <div className="single-post-item"> */}
-        <h3 className="post-card-title">{resource.video_url}</h3>
-        <p className="post-card-description">{resource.website_url}</p>
-      {/* </div> */}
-      <NoteList/>
+      <div className="single-post-item">
+        {/* this isnt working vvv */}
+        <h3 className="post-card-title">{video_url}</h3>
+        <p className="post-card-description">{website_url}</p>
+      </div>
+      {/* <NoteList/> */}
     </>
   );
 };

@@ -1,9 +1,6 @@
 import { useEffect } from "react";
 import ResourceCard from "./ResourceCard";
 
-import { Switch, Route } from "react-router-dom";
-import Resource from "./Resource";
-
 const ResourceList = ({ topicId, userId, user, setResources, resources }) => {
   useEffect(() => {
     fetch(`/topics/${topicId}/resources`)
@@ -26,20 +23,6 @@ const ResourceList = ({ topicId, userId, user, setResources, resources }) => {
 
   return (
     <>
-      {/* <Switch>
-        <Route
-          exact
-          path="topics/:topic_id/resources/:id"
-          render={({ computedmatch }) => (
-            <Resource
-              resource={resources.find(
-                (resource) => resource.id === parseInt(computedmatch.params.id)
-              )}
-              user={user}
-            />
-          )}
-        ></Route>
-      </Switch> */}
       <div>{resourceList}</div>
     </>
   );

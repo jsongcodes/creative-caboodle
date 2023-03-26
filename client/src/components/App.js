@@ -6,17 +6,12 @@ import TopicList from "./TopicList";
 import Login from "./Login";
 import TopicForm from "./TopicForm";
 import Topic from "./Topic";
-import ResourceList from "./ResourceList";
-
-
 import Resource from "./Resource";
 
 const App = () => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [topics, setTopics] = useState([]);
-
-
   const [resources, setResources] = useState([]);
 
   const addNewTopic = (newTopic) => {
@@ -58,13 +53,7 @@ const App = () => {
             topics={topics}
           />
         </Route>
-        {/* <Route exact path="/notes">
-          <NoteList user={user} setUser={setUser} userId={user.id} topics={topics} setTopics={setTopics}/>
-        </Route> */}
-        {/* <Route exact path="/resources"></Route> */}
-        {/* <Route exact path="/resources">
-          <ResourceList/>
-        </Route> */}
+
         <Route exact path="/topics/:id">
           <Topic
             userId={user.id}
