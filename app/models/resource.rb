@@ -7,6 +7,4 @@ class Resource < ApplicationRecord
     # has_one :note
     # belongs_to :topic
     # belongs_to :user
-
-    # validates :website_url, presence: true
 end
