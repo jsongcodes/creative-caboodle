@@ -61,8 +61,6 @@ const App = () => {
             setResources={setResources}
           />
         </Route>
-
-        {/* not working */}
         <Route
           exact
           path="/topics/:topic_id/resources/:id"

@@ -3,6 +3,9 @@ import NoteCard from "./NoteCard";
 import { useState, useEffect } from "react";
 import NoteEdit from "./NoteEdit";
 
+//users should only be able to see their own notes
+
+
 const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResources, setNotes, notes
 }) => {
   // const [errors, setErrors] = [""];
