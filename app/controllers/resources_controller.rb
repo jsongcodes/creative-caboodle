@@ -14,6 +14,20 @@ class ResourcesController < ApplicationController
         render json: resource, status: :created
     end
 
+    def notes
+        notes = Resource.find(params[:id]).notes
+        render json: notes, status: :ok
+
+                # notes = Resource.find(params[:id]).notes
+        # notes.map do |note|
+        #     if note.user_id == @current_user.id
+        #         notes = note
+        #         render json: notes, status: :ok
+        #     end
+            
+        # end
+    end
+
     private 
 
     def find_resource
