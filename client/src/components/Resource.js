@@ -16,7 +16,7 @@ const Resource = ({ resource = {}, user, setResources}) => {
         <h3 className="post-card-title">{resource.video_url}</h3>
         <p className="post-card-description">{resource.website_url}</p>
       </div>
-      <NoteList user={user} notes={notes} setNotes={setNotes} setResources={setResources}/>
+      <NoteList user={user} notes={notes} setNotes={setNotes} setResources={setResources} resourceId={id}/>
       <NoteForm addNewNote={addNewNote} resourceId={id} userId={user.id}/>
     </>
   );

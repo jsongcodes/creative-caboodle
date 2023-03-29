@@ -1,4 +1,4 @@
-// import Note from "./Note";
+import Note from "./Note";
 import NoteEdit from "./NoteEdit";
 import { Link } from "react-router-dom";
 
@@ -15,8 +15,8 @@ const NoteCard = ({note}) => {
         <p className="post-card-description">{content}</p>
 
     </div>
-      {/* <Note/> */}
-      <NoteEdit/>
+      <Note/>
+      {/* <NoteEdit/> */}
     </>
   );
 };

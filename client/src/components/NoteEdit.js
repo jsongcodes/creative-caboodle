@@ -9,12 +9,17 @@ const NoteEdit = ({ note, handleDeleteNote, handleUpdateNote, user }) => {
     handleUpdateNote(note.id, content);
   };
 
-  //edit is not working on postman. delete is working
+  //edit not working on frontend
   return (
     <>
-      {/* <div>NoteEdit component</div> */}
       <div className="bubble">
         <h3 className="comment">
+          {/* {user.id === note.user.id ? (
+            <div>
+              {`${note.content}`}
+              {`-${note.user.username}`}
+            </div>
+          ) : null} */}
           {`${note.content}`}
           {`-${note.user.username}`}
         </h3>
@@ -47,15 +52,15 @@ const NoteEdit = ({ note, handleDeleteNote, handleUpdateNote, user }) => {
             )}
           </div>
         ) : null}
-   </div> 
+      </div>
 
       {isEditing && note.user.id === user.id ? (
         <form className="edit-comment">
-          <label className="form-label" htmlFor="edit-comment">
-            edit comment:
+          <label className="form-label" >
+            edit note:
           </label>
           <input
-            name="edit-comment"
+            name="edit-note"
             type="text"
             placeholder={content}
             value={content}

@@ -1,27 +1,23 @@
-import NoteForm from "./NoteForm";
-import NoteCard from "./NoteCard";
+// import NoteCard from "./NoteCard";
 import { useState, useEffect } from "react";
 import NoteEdit from "./NoteEdit";
 
 //users should only be able to see their own notes
+//notes belong to resources
+//notes belong to users
 
-
-const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResources, setNotes, notes
+const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResources, setNotes, notes, resourceId
 }) => {
   // const [errors, setErrors] = [""];
 
-  //needs fixing
   useEffect(() => {
-    fetch("/notes").then((res) => {
+    fetch(`/resources/${resourceId}/notes`).then((res) => {
       if (res.ok) {
         res.json().then((notes) => {
           setNotes(notes)
-          console.log('notes: ', notes)
-            // setNotes(user.notes)
-            // setResources(user.resources)
-            // console.log(user.notes)
-            // console.log(notes)
         });
+      } else{
+        console.log(resourceId)
       }
     });
   }, []);
@@ -30,6 +26,7 @@ const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResou
     setNotes((notes) => [data, ...notes]);
   };
 
+  //edit not working on frontend
   const handleUpdateNote = (id, content) => {
     fetch(`/notes/${id}`, {
       method: "PATCH",
@@ -85,7 +82,6 @@ const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResou
 
   return (
     <>
-      {/* <NoteForm userId={userId} /> */}
       <div>{noteList}</div>
     </>
   );

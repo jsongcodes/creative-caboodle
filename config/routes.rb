@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, onlly: [:index]
 
   get '/topics/:id/resources', to: 'topics#resources'
+  get '/resources/:id/notes', to: 'resources#notes'
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

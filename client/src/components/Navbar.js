@@ -31,9 +31,9 @@ const Navbar = ({ user, setUser, onLogout }) => {
       <Link to="/" className="nav-button">
         topics
       </Link>
-      <Link to="/notes" className="nav-button">
+      {/* <Link to="/notes" className="nav-button">
         my notes
-      </Link>
+      </Link> */}
     </div>
     </>
   );
