@@ -3,8 +3,4 @@ class Resource < ApplicationRecord
     belongs_to :topic
     belongs_to :user
 
-    # # old
-    # has_one :note
-    # belongs_to :topic
-    # belongs_to :user
 end
