@@ -10,27 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_25_200627) do
+ActiveRecord::Schema.define(version: 2023_03_31_095035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "notes", force: :cascade do |t|
-    t.integer "resource_id"
-    t.string "title"
     t.string "content"
+    t.integer "resource_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+  end
+
+  create_table "poly_users", force: :cascade do |t|
+    t.text "content"
+    t.string "creator_type", null: false
+    t.bigint "creator_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["creator_type", "creator_id"], name: "index_poly_users_on_creator"
   end
 
   create_table "resources", force: :cascade do |t|
-    t.integer "topic_id"
-    t.string "video_url"
     t.string "website_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.string "title"
+    t.boolean "free"
+    t.string "description"
+  end
+
+  create_table "resources_topics", id: false, force: :cascade do |t|
+    t.bigint "resource_id", null: false
+    t.bigint "topic_id", null: false
+    t.index ["resource_id"], name: "index_resources_topics_on_resource_id"
+    t.index ["topic_id"], name: "index_resources_topics_on_topic_id"
   end
 
   create_table "topics", force: :cascade do |t|
