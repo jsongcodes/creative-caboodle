@@ -12,7 +12,6 @@ const NoteEdit = ({ note, handleDeleteNote, handleUpdateNote }) => {
     handleUpdateNote(note.id, content);
   };
 
-  //edit not working on frontend
   return (
     <>
       <div className="bubble">
