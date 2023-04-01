@@ -10,7 +10,8 @@ class ResourcesController < ApplicationController
     end
 
     def create
-        resource = @current_user.resources.create!(resource_params)
+        # resource = @current_user.resources.create!(resource_params)
+        resource = Resource.create!(resource_params)
         render json: resource, status: :created
     end
 
@@ -35,6 +36,6 @@ class ResourcesController < ApplicationController
     end
 
     def resource_params
-        params.permit(:topic_id, :user_id, :video_url, :website_url)
+        params.permit(:topic_id, :website_url, :title, :free, :description)
     end
 end

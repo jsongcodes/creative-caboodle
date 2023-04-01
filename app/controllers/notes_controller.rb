@@ -1,5 +1,6 @@
 class NotesController < ApplicationController    
     def index
+        # notes = Note.all
         # notes = Note.find_by(user_id: params[:user_id])
         # if @current_user == note.user
         #     @current_user.notes
@@ -54,6 +55,6 @@ class NotesController < ApplicationController
     end
 
     def note_params
-        params.permit(:user_id, :resource_id, :title, :content)
+        params.permit(:user_id, :resource_id, :content)
     end
 end

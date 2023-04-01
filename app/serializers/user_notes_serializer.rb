@@ -1,3 +1,3 @@
 class UserNotesSerializer < ActiveModel::Serializer
-  attributes :id, :title, :content
+  attributes :id
 end

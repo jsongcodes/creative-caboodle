@@ -1,6 +1,8 @@
 class ResourceSerializer < ActiveModel::Serializer
-  attributes :id, :topic_id, :video_url, :website_url, :user_id, :notes
+  attributes :id, :website_url,  :title, :free, :description
 
-  belongs_to :user
   has_many :notes
+  has_many :users, through: :notes
+
+
 end

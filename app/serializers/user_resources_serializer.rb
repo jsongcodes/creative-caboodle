@@ -1,3 +1,3 @@
 class UserResourcesSerializer < ActiveModel::Serializer
-  attributes :id, :video_url, :website_url, :notes
+  attributes :id, :website_url, :title, :description, :free
 end
