@@ -4,7 +4,7 @@ import NoteEdit from "./NoteEdit";
 
 const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResources, setNotes, notes, resourceId
 }) => {
-  // const [errors, setErrors] = [""];
+  const [errors, setErrors] = [""];
 
   useEffect(() => {
     fetch(`/resources/${resourceId}/notes`).then((res) => {
@@ -13,7 +13,7 @@ const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResou
           setNotes(notes)
         });
       } else{
-        console.log(resourceId)
+        res.json().then((error) => setErrors(error.errors));
       }
     });
   }, []);
@@ -27,8 +27,9 @@ const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResou
     fetch(`/notes/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      content: JSON.stringify({ content: content }),
+      body: JSON.stringify({ content: content}),
     }).then((res) => {
+      console.log(content)
       if (!res.ok) {
         res.json().then((err) => {
           alert(err.errors);

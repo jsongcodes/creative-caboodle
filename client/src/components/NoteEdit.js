@@ -14,14 +14,12 @@ const NoteEdit = ({ note, handleDeleteNote, handleUpdateNote, user }) => {
     <>
       <div className="bubble">
         <h3 className="comment">
-          {/* {user.id === note.user.id ? (
+          {user.id === note.user.id ? (
             <div>
               {`${note.content}`}
               {`-${note.user.username}`}
             </div>
-          ) : null} */}
-          {`${note.content}`}
-          {`-${note.user.username}`}
+          ) : null}
         </h3>
 
         {user.id === note.user.id ? (

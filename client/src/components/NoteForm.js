@@ -6,6 +6,8 @@ const NoteForm = ({userId, resourceId, addNewNote}) => {
     user_id: userId,
     content: ""
   });
+  // const [noteContent, setNoteContent] = useState("");
+
   const [errors, setErrors] = useState([]);
 
   const handleChange = (e) => {
