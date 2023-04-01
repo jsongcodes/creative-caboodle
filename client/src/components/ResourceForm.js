@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ResourceForm = ({topicId, userId, resources, setResources}) => {
+const ResourceForm = ({topicId, resources, setResources}) => {
   const [inputForm, setInputForm] = useState({
     title: "",
     website_url: "",

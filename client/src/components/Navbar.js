@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { SampleContext } from "../context/sample";
+import { useContext } from "react";
 
-const Navbar = ({ user, setUser, onLogout }) => {
+const Navbar = ({ onLogout }) => {
+  const [user, setUser] = useContext(SampleContext);
+
   const handleLogoutClick = () => {
     fetch("/logout", {
       method: "DELETE",
@@ -21,20 +25,20 @@ const Navbar = ({ user, setUser, onLogout }) => {
         inspiration, such as: blogs, videos, images, or podcasts.{" "}
       </h2>
       <div className="navbar-background">
-      <p className="welcome">welcome, {user.username}!</p>
-      <button onClick={handleLogoutClick} className="nav-button">
-        logout
-      </button>
-      <Link to="/resources" className="nav-button">
-        resources
-      </Link>
-      <Link to="/" className="nav-button">
-        home
-      </Link>
-      <Link to="/topics" className="nav-button">
-        topics
-      </Link>
-    </div>
+        <p className="welcome">welcome, {user.username}!</p>
+        <button onClick={handleLogoutClick} className="nav-button">
+          logout
+        </button>
+        <Link to="/resources" className="nav-button">
+          resources
+        </Link>
+        <Link to="/" className="nav-button">
+          home
+        </Link>
+        <Link to="/topics" className="nav-button">
+          topics
+        </Link>
+      </div>
     </>
   );
 };

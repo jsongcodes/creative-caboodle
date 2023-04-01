@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useContext } from "react";
+import { SampleContext } from "../context/sample";
 
-const NoteEdit = ({ note, handleDeleteNote, handleUpdateNote, user }) => {
+const NoteEdit = ({ note, handleDeleteNote, handleUpdateNote }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(note.content);
+  const [user, setUser] = useContext(SampleContext);
 
   const onUpdateNote = () => {
     setIsEditing(!isEditing);
@@ -54,9 +57,7 @@ const NoteEdit = ({ note, handleDeleteNote, handleUpdateNote, user }) => {
 
       {isEditing && note.user.id === user.id ? (
         <form className="edit-comment">
-          <label className="form-label" >
-            edit note:
-          </label>
+          <label className="form-label">edit note:</label>
           <input
             name="edit-note"
             type="text"

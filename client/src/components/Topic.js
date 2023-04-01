@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const Topic = ({ userId, user, resources, setResources }) => {
+const Topic = ({ resources, setResources }) => {
   const [topicInfo, setTopicInfo] = useState([]);
 
   const params = useParams();

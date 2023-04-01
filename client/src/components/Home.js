@@ -1,7 +1,9 @@
 const Home = () => {
     return (
       <>
-        <div>Home component</div>
+        <div>Welcome message</div>
+        <div>Topics</div>
+        <div>Most popular resources</div>
       </>
     );
   };

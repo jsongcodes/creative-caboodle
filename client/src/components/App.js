@@ -1,5 +1,5 @@
 import "../App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import TopicList from "./TopicList";
@@ -8,9 +8,10 @@ import ResourceList from "./ResourceList";
 import Topic from "./Topic";
 import Resource from "./Resource";
 import Home from "./Home";
+import {SampleContext} from "../context/sample";
 
 const App = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useContext(SampleContext);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [topics, setTopics] = useState([]);
   const [resources, setResources] = useState([]);
@@ -38,7 +39,7 @@ const App = () => {
 
   return (
     <>
-      <Navbar user={user} setUser={setUser} handleLogout={handleLogout} />
+      <Navbar handleLogout={handleLogout} />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -48,8 +49,6 @@ const App = () => {
         </Route>
         <Route exact path="/topics/:id">
           <Topic
-            userId={user.id}
-            user={user}
             resources={resources}
             setResources={setResources}
           />
@@ -62,14 +61,12 @@ const App = () => {
               resource={resources.find(
                 (resource) => resource.id === parseInt(match.params.id)
               )}
-              user={user}
               setResources={setResources}
             />
           )}
         ></Route>
         <Route exact path="/resources">
           <ResourceList
-            user={user}
             setResources={setResources}
             resources={resources}
           />

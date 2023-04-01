@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import ResourceCard from "./ResourceCard";
 import ResourceForm from "./ResourceForm";
 
-const ResourceList = ({ userId, setResources, resources }) => {
+const ResourceList = ({ setResources, resources }) => {
   useEffect(() => {
     fetch(`/resources`)
       .then((res) => res.json())
-      .then((resources) => setResources(resources))
+      .then((resources) => setResources(resources));
   }, []);
 
   const resourceList = [...resources].map((resource) => {
@@ -23,11 +23,7 @@ const ResourceList = ({ userId, setResources, resources }) => {
   return (
     <>
       <div>{resourceList}</div>
-      <ResourceForm
-        userId={userId}
-        resources={resources}
-        setResources={setResources}
-      />
+      <ResourceForm resources={resources} setResources={setResources} />
     </>
   );
 };

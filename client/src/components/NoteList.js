@@ -1,18 +1,27 @@
-// import NoteCard from "./NoteCard";
 import { useState, useEffect } from "react";
 import NoteEdit from "./NoteEdit";
+import { useContext } from "react";
+import { SampleContext } from "../context/sample";
 
-const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResources, setNotes, notes, resourceId
+const NoteList = ({
+  topics,
+  setTopics,
+  resources,
+  setResources,
+  setNotes,
+  notes,
+  resourceId,
 }) => {
   const [errors, setErrors] = [""];
+  const [user, setUser] = useContext(SampleContext);
 
   useEffect(() => {
     fetch(`/resources/${resourceId}/notes`).then((res) => {
       if (res.ok) {
         res.json().then((notes) => {
-          setNotes(notes)
+          setNotes(notes);
         });
-      } else{
+      } else {
         res.json().then((error) => setErrors(error.errors));
       }
     });
@@ -27,9 +36,9 @@ const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResou
     fetch(`/notes/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ content: content}),
+      body: JSON.stringify({ content: content }),
     }).then((res) => {
-      console.log(content)
+      console.log(content);
       if (!res.ok) {
         res.json().then((err) => {
           alert(err.errors);
@@ -64,18 +73,16 @@ const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResou
   };
 
   const noteList = [...notes].map((note) => {
-    return(
+    return (
       <NoteEdit
-      key={note.id}
-      note={note}
-      handleDeleteNote={handleDeleteNote}
-      handleUpdateNote={handleUpdateNote}
-      user={user}
-    />
-    )
+        key={note.id}
+        note={note}
+        handleDeleteNote={handleDeleteNote}
+        handleUpdateNote={handleUpdateNote}
+      />
+    );
     // return <NoteCard key={note.id} note={note}/>
-  })
-
+  });
 
   return (
     <>
