@@ -1,5 +1,4 @@
 import Note from "./Note";
-import NoteEdit from "./NoteEdit";
 import { Link } from "react-router-dom";
 
 const NoteCard = ({note}) => {
@@ -16,7 +15,6 @@ const NoteCard = ({note}) => {
 
     </div>
       <Note/>
-      {/* <NoteEdit/> */}
     </>
   );
 };

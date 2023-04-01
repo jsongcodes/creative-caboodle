@@ -25,15 +25,15 @@ const Navbar = ({ user, setUser, onLogout }) => {
       <button onClick={handleLogoutClick} className="nav-button">
         logout
       </button>
-      <Link to="/newtopic" className="nav-button">
-        new topic
+      <Link to="/resources" className="nav-button">
+        resources
       </Link>
       <Link to="/" className="nav-button">
+        home
+      </Link>
+      <Link to="/topics" className="nav-button">
         topics
       </Link>
-      {/* <Link to="/notes" className="nav-button">
-        my notes
-      </Link> */}
     </div>
     </>
   );

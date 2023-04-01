@@ -2,16 +2,20 @@ import { useState } from "react";
 
 const ResourceForm = ({topicId, userId, resources, setResources}) => {
   const [inputForm, setInputForm] = useState({
-    video_url: "",
+    title: "",
     website_url: "",
-    topic_id: parseInt(topicId),
-    user_id: parseInt(userId)
+    description: ""
   });  
+  // const [free, setFree] = useState(false);
   const [errors, setErrors] = useState([]);
 
   const handleChange = (e) => {
     setInputForm({ ...inputForm, [e.target.name]: e.target.value });
   };
+
+  // const handleCheckboxChange = (e) => {
+  //   setFree(!free)
+  // }
 
   const addNewResource = (newResource) => {
     setResources((resources) => [newResource, ...resources]);
@@ -33,7 +37,7 @@ const ResourceForm = ({topicId, userId, resources, setResources}) => {
       } else{
           res.json().then((data) => {
             addNewResource(data)
-            setInputForm({ video_url: "", website_url: ""})})
+            setInputForm({ title: "", website_url: "", description: ""})})
       }
   })
   }
@@ -44,13 +48,23 @@ const ResourceForm = ({topicId, userId, resources, setResources}) => {
         <div>
           <input
             className="comment-input"
-            name="video_url"
+            name="title"
             type="text"
-            placeholder="Enter a video url..."
-            value={inputForm.video_url}
+            placeholder="Enter a title..."
+            value={inputForm.title}
             onChange={handleChange}
           ></input>
         </div>
+        {/* <div>
+          Free?
+          <input
+            className="comment-input"
+            name="free"
+            type="checkbox"
+            value={inputForm.free}
+            onChange={handleCheckboxChange}
+          ></input>
+        </div> */}
         <div>
           <input
             className="comment-input"
@@ -58,6 +72,16 @@ const ResourceForm = ({topicId, userId, resources, setResources}) => {
             type="text"
             placeholder="Enter a website url..."
             value={inputForm.website_url}
+            onChange={handleChange}
+          ></input>
+        </div>
+        <div>
+          <input
+            className="comment-input"
+            name="description"
+            type="text"
+            placeholder="Enter a description..."
+            value={inputForm.description}
             onChange={handleChange}
           ></input>
         </div>

@@ -1,22 +1,22 @@
 import { Link } from "react-router-dom";
 
-const ResourceCard = ({ resource, topicId, user, resources }) => {
-  const { id, video_url, website_url } = resource;
+const ResourceCard = ({ resource, topicId, user, resources, setResources }) => {
+  const { id, title, description, website_url } = resource;
 
   return (
       <div>
-        <Link
-          to={`/topics/${topicId}/resources/${id}`}
+        <Link to={`/resources/${id}`}
           className="post-card-title"
         >
-          {website_url}
+          link: {website_url}
         </Link>
-        {/* <Link to={website_url} className="post-card-title">
-        {website_url}
-      </Link> */}
-        <Link to={video_url} className="post-card-title">
-          {video_url}
-        </Link>
+        <div>title: {title}</div>
+        <div>description: {description}</div>
+
+
+
+
+
       </div>
   );
 };

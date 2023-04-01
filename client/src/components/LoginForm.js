@@ -22,7 +22,6 @@ const LoginForm = ({ onLogin }) => {
 
   return (
     <>
-      <div>LoginForm component</div>
       <form onSubmit={handleLogin}>
         <label>username</label>
         <input
@@ -38,9 +37,7 @@ const LoginForm = ({ onLogin }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
         <button type="submit">login</button>
-
         {errors.map((err) => (
           <error key={err}>{err}</error>
         ))}

@@ -1,20 +1,20 @@
 import { useEffect } from "react";
 import ResourceCard from "./ResourceCard";
+import ResourceForm from "./ResourceForm";
 
-const ResourceList = ({ topicId, userId, user, setResources, resources }) => {
+const ResourceList = ({ userId, setResources, resources }) => {
   useEffect(() => {
-    fetch(`/topics/${topicId}/resources`)
+    fetch(`/resources`)
       .then((res) => res.json())
       .then((resources) => setResources(resources))
-      //resources is an empty array
-  }, [topicId]);
+  }, []);
 
   const resourceList = [...resources].map((resource) => {
     return (
       <ResourceCard
         key={resource.id}
         resource={resource}
-        topicId={topicId}
+        setResources={setResources}
         resources={resources}
       />
     );
@@ -23,6 +23,11 @@ const ResourceList = ({ topicId, userId, user, setResources, resources }) => {
   return (
     <>
       <div>{resourceList}</div>
+      <ResourceForm
+        userId={userId}
+        resources={resources}
+        setResources={setResources}
+      />
     </>
   );
 };

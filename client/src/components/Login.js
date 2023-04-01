@@ -7,7 +7,6 @@ const Login = ({ onLogin }) => {
 
   return (
     <>
-      <div>Login component</div>
       {showLogin ? (
           <>
             <LoginForm onLogin={onLogin} />

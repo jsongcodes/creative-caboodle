@@ -17,7 +17,7 @@ const SignupForm = ({ onLogin }) => {
       body: JSON.stringify({
         username,
         password,
-        email
+        email,
       }),
     }).then((res) => {
       if (res.ok) {
@@ -30,7 +30,6 @@ const SignupForm = ({ onLogin }) => {
 
   return (
     <>
-      <div>SignupForm component</div>
       <form onSubmit={handleSignup}>
         <label>username</label>
         <input
@@ -39,7 +38,6 @@ const SignupForm = ({ onLogin }) => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-
         <label>password</label>
         <input
           type="password"
@@ -47,7 +45,6 @@ const SignupForm = ({ onLogin }) => {
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
         />
-
         <label>email</label>
         <input
           type="email"
@@ -55,9 +52,7 @@ const SignupForm = ({ onLogin }) => {
           onChange={(e) => setEmail(e.target.value)}
           autoComplete="current-email"
         />
-
         <button type="submit">sign up</button>
-
         {errors.map((err) => (
           <error key={err}>{err}</error>
         ))}

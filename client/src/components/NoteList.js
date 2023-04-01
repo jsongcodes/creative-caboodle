@@ -2,10 +2,6 @@
 import { useState, useEffect } from "react";
 import NoteEdit from "./NoteEdit";
 
-//users should only be able to see their own notes
-//notes belong to resources
-//notes belong to users
-
 const NoteList = ({user, setUser, userId, topics, setTopics, resources, setResources, setNotes, notes, resourceId
 }) => {
   // const [errors, setErrors] = [""];

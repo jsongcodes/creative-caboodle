@@ -4,7 +4,6 @@ const NoteForm = ({userId, resourceId, addNewNote}) => {
   const [inputForm, setInputForm] = useState({
     resource_id: resourceId,
     user_id: userId,
-    title: "",
     content: ""
   });
   const [errors, setErrors] = useState([]);
@@ -29,7 +28,7 @@ const NoteForm = ({userId, resourceId, addNewNote}) => {
       } else{
           res.json().then((data) => {
             addNewNote(data)
-            setInputForm({ title: "", content: ""})})
+            setInputForm({ content: ""})})
       }
   })
   }
@@ -37,16 +36,6 @@ const NoteForm = ({userId, resourceId, addNewNote}) => {
   return (
     <div className="main-container">
     <form className="create-comment" onSubmit={(e) => handleSubmit(e)}>
-      <div>
-        <input
-          className="comment-input"
-          name="title"
-          type="text"
-          placeholder="Enter a title..."
-          value={inputForm.title}
-          onChange={handleChange}
-        ></input>
-      </div>
       <div>
         <input
           className="comment-input"
