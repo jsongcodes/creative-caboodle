@@ -6,8 +6,10 @@ ruby "2.7.4"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.1'
-# Use Puma as the app server
+# gem 'pg', '~> 1.1'
+gem 'sqlite3', '~>
+   1.4'
+   # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
@@ -49,3 +51,9 @@ group :test do
 end
 
 gem "active_model_serializers", "~> 0.10.12"
+
+gem "faraday"
+
+gem "dry-initializer"
+
+gem 'figaro'

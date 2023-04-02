@@ -75,8 +75,15 @@ GEM
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     diff-lcs (1.4.4)
+    dry-initializer (3.1.1)
     erubi (1.10.0)
+    faraday (2.7.4)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
     ffi (1.15.1)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.10)
@@ -157,6 +164,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
+    ruby2_keywords (0.0.5)
     shoulda-matchers (4.5.1)
       activesupport (>= 4.2.0)
     spring (2.1.1)
@@ -184,6 +192,9 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.4)
   byebug
+  dry-initializer
+  faraday
+  figaro
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
