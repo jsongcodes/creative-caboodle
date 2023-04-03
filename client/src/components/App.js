@@ -8,7 +8,8 @@ import ResourceList from "./ResourceList";
 import Topic from "./Topic";
 import Resource from "./Resource";
 import Home from "./Home";
-import {SampleContext} from "../context/sample";
+import { SampleContext } from "../context/sample";
+import Chat from "./Chat";
 
 const App = () => {
   const [user, setUser] = useContext(SampleContext);
@@ -48,10 +49,7 @@ const App = () => {
           <TopicList topics={topics} setTopics={setTopics} />
         </Route>
         <Route exact path="/topics/:id">
-          <Topic
-            resources={resources}
-            setResources={setResources}
-          />
+          <Topic resources={resources} setResources={setResources} />
         </Route>
         <Route
           exact
@@ -66,10 +64,10 @@ const App = () => {
           )}
         ></Route>
         <Route exact path="/resources">
-          <ResourceList
-            setResources={setResources}
-            resources={resources}
-          />
+          <ResourceList setResources={setResources} resources={resources} />
+        </Route>
+        <Route exact path="/help">
+          <Chat />
         </Route>
       </Switch>
     </>

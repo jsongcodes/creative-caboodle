@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   resources :notes
   resources :topics, only: [:index, :show, :create]
-  resources :resources, only: [:index, :show, :create]
-  resources :users, onlly: [:index]
+  resources :resources, only: [:index, :show, :create, :update]
+  resources :users, only: [:index]
 
   # get '/topics/:id/resources', to: 'topics#resources'
   get '/resources/:id/notes', to: 'resources#notes'
@@ -16,5 +16,12 @@ Rails.application.routes.draw do
   
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
+
+  # resources :resources do
+  #   resources :likes
+  # end
+
+  # post 'ai_request', to 'pages#ai_request'
+  # root 'pages#home'
 
 end

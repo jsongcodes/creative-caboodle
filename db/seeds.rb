@@ -66,7 +66,8 @@ resource1 = Resource.create(
     free: true,
     description: "youtube video that explains ___.",
     website_url: "https://www.youtube.com/watch?v=hQAHSlTtcmY&ab_channel=WebDevSimplified",
-    topic_id: topic1.id,
+    # topic_id: topic1.id,
+    favorites: 0
     # creator_id: user1.id
     )
 resource2 = Resource.create(
@@ -74,7 +75,8 @@ resource2 = Resource.create(
     free: true,
     description: "blog that explains how to build a backend",
     website_url: "https://dev.to/jsongcodes/building-a-backend-for-a-full-stack-web-app-4if",
-    topic_id: topic2.id,
+    # topic_id: topic2.id,
+    favorites: 1
     # creator_id: user2.id
     )
 resource3 = Resource.create(
@@ -82,7 +84,8 @@ resource3 = Resource.create(
     free: false,
     description: "podcast to help you ___",
     website_url: "https://open.spotify.com/episode/6tEUG2LYIiqIOVjfFDNjls",
-    topic_id: topic3.id,
+    # topic_id: topic3.id,
+    favorites: 2
     # creator_id: user3.id
     )
 

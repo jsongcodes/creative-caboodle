@@ -1,7 +1,6 @@
 import NoteList from "./NoteList";
 import NoteForm from "./NoteForm";
-import { useState } from "react";
-import {useContext} from "react";
+import { useState, useContext } from "react";
 import {SampleContext} from "../context/sample";
 
 const Resource = ({ resource = {}, 

@@ -9,5 +9,9 @@
     "clean": "rm -rf public",
     "deploy": "cp -a client/build/. public/",
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+  },
+  "dependencies": {
+    "openai": "^3.2.1",
+    "@chatscope/chat-ui-kit-react": "^1.10.1"
   }
 }

@@ -12,4 +12,9 @@ class Resource < ApplicationRecord
 
     has_many :poly_users, as: :creator
 
+    # def favorites_handler
+    #     favorites + 1
+    # end
+
+
 end

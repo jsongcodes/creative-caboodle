@@ -15,6 +15,12 @@ class ResourcesController < ApplicationController
         render json: resource, status: :created
     end
 
+    def update
+        resource = find_resource
+        resource.update(favorites: params[:favorites])
+        render json: resource, status: :accepted
+    end
+
     def notes
         notes = Resource.find(params[:id]).notes
         render json: notes, status: :ok
@@ -36,6 +42,6 @@ class ResourcesController < ApplicationController
     end
 
     def resource_params
-        params.permit(:topic_id, :website_url, :title, :free, :description)
+        params.permit(:topic_id, :website_url, :title, :free, :description, :favorites)
     end
 end

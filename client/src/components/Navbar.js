@@ -38,6 +38,9 @@ const Navbar = ({ onLogout }) => {
         <Link to="/topics" className="nav-button">
           topics
         </Link>
+        <Link to="/help">
+          ask ChatGPT
+        </Link>
       </div>
     </>
   );
