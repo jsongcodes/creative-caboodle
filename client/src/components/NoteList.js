@@ -31,14 +31,12 @@ const NoteList = ({
     setNotes((notes) => [data, ...notes]);
   };
 
-  //edit not working on frontend
   const handleUpdateNote = (id, content) => {
     fetch(`/notes/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ content: content }),
     }).then((res) => {
-      console.log(content);
       if (!res.ok) {
         res.json().then((err) => {
           alert(err.errors);

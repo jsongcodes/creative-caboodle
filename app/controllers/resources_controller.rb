@@ -35,6 +35,15 @@ class ResourcesController < ApplicationController
         # end
     end
 
+    def mostpopular
+        resources = Resource.all.each do |resource|
+            resource.favorites
+        end
+        highest = resources.sort{|a, b| b <=> a}.first
+        render json: highest, status: :ok
+    end
+
+
     private 
 
     def find_resource

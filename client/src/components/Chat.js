@@ -2,18 +2,15 @@ import { useState } from 'react'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
-// const dotenv = require('dotenv');
 
 
-const systemMessage = { //  Explain things like you're talking to a software professional with 5 years of experience.
+const systemMessage = { 
     "role": "system", "content": "Explain things like you're talking to a software professional with 2 years of experience."
   }
 
-//   const env = dotenv.config().parsed;
-//   const { NEXT_PUBLIC_OPENAI_API_KEY } = process.env;
-
-const API_KEY = "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"
-
+// const API_KEY = "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"
+const API_KEY1 = process.env.REACT_APP_API_KEY
+const API_KEY2 = process.env.OPENAI_API_KEY
 
   function Chat() {
     const [messages, setMessages] = useState([
@@ -65,7 +62,9 @@ const API_KEY = "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"
       {
         method: "POST",
         headers: {
-          "Authorization": "Bearer " + API_KEY,
+          // "Authorization": "Bearer " + API_KEY,
+          // "Authorization": "Bearer " + API_KEY1,
+          "Authorization": "Bearer " + API_KEY2,
           "Content-Type": "application/json"
         },
         body: JSON.stringify(apiRequestBody)

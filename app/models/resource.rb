@@ -16,5 +16,12 @@ class Resource < ApplicationRecord
     #     favorites + 1
     # end
 
+    # def favorite_count
+    #     count = 0
+    #     self.each do |resource|
+    #         favorites += favorites
+    #     end
+    #     count
+    # end  
 
 end

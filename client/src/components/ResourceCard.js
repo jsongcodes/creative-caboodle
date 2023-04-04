@@ -5,75 +5,53 @@ const ResourceCard = ({ resource, topicId, resources, setResources }) => {
   const { id, title, description, website_url, favorites } = resource;
 
   const [favorite, setFavorite] = useState(false);
-  const [numberOfFavorites, setNumberOfFavorites] = useState(0);
+  // const [numberOfFavorites, setNumberOfFavorites] = useState(resource.favorites);
   const [errors, setErrors] = useState([])
 
-  useEffect(() => {
-    fetch(`/resources`)
-      .then((res) => res.json())
-      .then((resources) => setNumberOfFavorites(resources.favorites))
-      .then(console.log('useeffect: ', favorites))
-  }, []);
+  // useEffect(() => {
+  //   fetch(`/resources`)
+  //     .then((res) => res.json())
+  //     .then((resources) => setResources(resources))
+  //     .then(console.log('useeffect: ', numberOfFavorites))
+  // }, []);
 
-  const updateFavoriteCounter = () => {
-    setResources((resource) => {
-      return {
-        favorites: resource.favorites + 1
-      }
-    })
-  }
+  // const updateFavoriteCounter = (data) => {
+  //   setFavorite(true)
+  //   setNumberOfFavorites(numberOfFavorites + 1)
+  //   console.log(numberOfFavorites)
+  // }
 
   const handleFavoriteClick = () => {
     fetch(`/resources/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(favorite),
+      body: JSON.stringify({favorites: favorites}),
     })
     .then((res) => {
       if (!res.ok) {
         res.json().then((err) => {
           alert(err.errors);
-          return numberOfFavorites;
+          return resources;
         });
       } else {
-        // setResources((resource) => {
-        //   let updatedResources = resource.map((resource) => {
-        //     if (resource.id == id){
-        //       setNumberOfFavorites(numberOfFavorites + 1)
-        //       resource.favorites = numberOfFavorites
-        //       console.log(numberOfFavorites)
-        //     }
-        //     return resource
-        //   })
-        //   return updatedResources
-        // })
-        // if (resource.id === id){
-        //   setFavorite(true)
-        //   setNumberOfFavorites(numberOfFavorites + 1)
-        //   console.log(numberOfFavorites)
-        //   resource.favorites = numberOfFavorites
-        //   // return resource.favorites
-        // }
-        // setNumberOfFavorites((favorites) => {
-        //   let updatedFavorites = resources.map((resource) => {
-        //     if (resource.id === id) {
-        //       resource.favorites = favorite + 1;
-        //       console.log(numberOfFavorites)
-        //     }
-        //     return resource;
-        //   });
-        //   return updatedFavorites;
-        //   // console.log(updatedFavorites)
-        // });
+        setResources((resources) => {
+          let updatedResources = resources.map((resource) => {
+            if (resource.id == id){
+              setFavorite(true)
+              // setNumberOfFavorites(resource.favorites + 1)
+              // resource.favorites = (numberOfFavorites + 1)
+              resource.favorites = favorites + 1
+
+              console.log(resource.favorites)
+            }
+            return resource
+          })
+          return updatedResources
+        })
       }
     });
-
-    console.log(favorites)
-
-    // setFavorite(true)
-    // setNumberOfFavorites(favorite + 1)
-    // console.log(numberOfFavorites)
   }
+
   return (
       <div>
         <Link to={`/resources/${id}`}
@@ -85,6 +63,7 @@ const ResourceCard = ({ resource, topicId, resources, setResources }) => {
         <div>link: {website_url}</div>
         <div>description: {description}</div>
         <div>free?</div>
+        <div>number of likes: {favorites}</div>
         {favorite ? (
           <button
             onClick={() => setFavorite(false)}
@@ -94,7 +73,7 @@ const ResourceCard = ({ resource, topicId, resources, setResources }) => {
           </button>
         ) : (
           <button
-            onClick={updateFavoriteCounter}
+            onClick={handleFavoriteClick}
             className="emoji-button favorite"
           >
             ♡

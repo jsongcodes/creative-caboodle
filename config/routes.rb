@@ -5,11 +5,14 @@ Rails.application.routes.draw do
 
   resources :notes
   resources :topics, only: [:index, :show, :create]
+  get '/resources/mostpopular', to: 'resources#mostpopular'
+
   resources :resources, only: [:index, :show, :create, :update]
   resources :users, only: [:index]
 
   # get '/topics/:id/resources', to: 'topics#resources'
   get '/resources/:id/notes', to: 'resources#notes'
+  get '/resources/mostpopular', to: 'resources#mostpopular'
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
