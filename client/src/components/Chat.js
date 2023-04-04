@@ -2,10 +2,17 @@ import { useState } from 'react'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
-const API_KEY = "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"
+// const dotenv = require('dotenv');
+
+
 const systemMessage = { //  Explain things like you're talking to a software professional with 5 years of experience.
     "role": "system", "content": "Explain things like you're talking to a software professional with 2 years of experience."
   }
+
+//   const env = dotenv.config().parsed;
+//   const { NEXT_PUBLIC_OPENAI_API_KEY } = process.env;
+
+const API_KEY = "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"
 
 
   function Chat() {
@@ -28,17 +35,12 @@ const systemMessage = { //  Explain things like you're talking to a software pro
       const newMessages = [...messages, newMessage];
       
       setMessages(newMessages);
-  
-      // Initial system message to determine ChatGPT functionality
-      // How it responds, how it talks, etc.
+
       setIsTyping(true);
       await processMessageToChatGPT(newMessages);
     };
   
-    async function processMessageToChatGPT(chatMessages) { // messages is an array of messages
-      // Format messages for chatGPT API
-      // API is expecting objects in format of { role: "user" or "assistant", "content": "message here"}
-      // So we need to reformat
+    async function processMessageToChatGPT(chatMessages) {
   
       let apiMessages = chatMessages.map((messageObject) => {
         let role = "";
@@ -50,15 +52,12 @@ const systemMessage = { //  Explain things like you're talking to a software pro
         return { role: role, content: messageObject.message}
       });
   
-  
-      // Get the request body set up with the model we plan to use
-      // and the messages which we formatted above. We add a system message in the front to'
-      // determine how we want chatGPT to act. 
+
       const apiRequestBody = {
         "model": "gpt-3.5-turbo",
         "messages": [
-          systemMessage,  // The system message DEFINES the logic of our chatGPT
-          ...apiMessages // The messages from our chat with ChatGPT
+          systemMessage, 
+          ...apiMessages 
         ]
       }
   
