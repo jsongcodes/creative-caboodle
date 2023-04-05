@@ -39,7 +39,8 @@ class ResourcesController < ApplicationController
         resources = Resource.all.each do |resource|
             resource.favorites
         end
-        highest = resources.sort{|a, b| b <=> a}.first
+        sorted = resources.sort{|a, b| a <=> b}
+        highest = sorted.first
         render json: highest, status: :ok
     end
 

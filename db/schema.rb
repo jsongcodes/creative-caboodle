@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_02_193424) do
+ActiveRecord::Schema.define(version: 2023_04_05_183211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,9 +56,11 @@ ActiveRecord::Schema.define(version: 2023_04_02_193424) do
     t.integer "favorites"
   end
 
-  create_table "resources_topics", id: false, force: :cascade do |t|
+  create_table "resources_topics", force: :cascade do |t|
     t.bigint "resource_id", null: false
     t.bigint "topic_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["resource_id"], name: "index_resources_topics_on_resource_id"
     t.index ["topic_id"], name: "index_resources_topics_on_topic_id"
   end
@@ -81,4 +83,6 @@ ActiveRecord::Schema.define(version: 2023_04_02_193424) do
 
   add_foreign_key "likes", "resources"
   add_foreign_key "likes", "users"
+  add_foreign_key "resources_topics", "resources"
+  add_foreign_key "resources_topics", "topics"
 end

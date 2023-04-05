@@ -5,23 +5,16 @@ class Resource < ApplicationRecord
 
 
     # after meeting with demetrio
-    has_and_belongs_to_many :topics
+    # has_and_belongs_to_many :topics
+    # has_many :topics, though :resource_topics
+
+    has_many :resources_topics
+    has_many :topics, through: :resources_topics
 
     has_many :notes
     has_many :users, through: :notes
 
     has_many :poly_users, as: :creator
 
-    # def favorites_handler
-    #     favorites + 1
-    # end
-
-    # def favorite_count
-    #     count = 0
-    #     self.each do |resource|
-    #         favorites += favorites
-    #     end
-    #     count
-    # end  
 
 end

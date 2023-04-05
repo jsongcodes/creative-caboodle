@@ -10,6 +10,7 @@ import Resource from "./Resource";
 import Home from "./Home";
 import { SampleContext } from "../context/sample";
 import Chat from "./Chat";
+import ResourceForm from "./ResourceForm";
 
 const App = () => {
   const [user, setUser] = useContext(SampleContext);
@@ -65,6 +66,9 @@ const App = () => {
         ></Route>
         <Route exact path="/resources">
           <ResourceList setResources={setResources} resources={resources} />
+        </Route>
+        <Route exact path="/newresource">
+          <ResourceForm setResources={setResources} resources={resources} />
         </Route>
         <Route exact path="/help">
           <Chat />

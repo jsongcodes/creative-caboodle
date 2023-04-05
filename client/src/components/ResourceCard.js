@@ -37,7 +37,7 @@ const ResourceCard = ({ resource, topicId, resources, setResources }) => {
         setResources((resources) => {
           let updatedResources = resources.map((resource) => {
             if (resource.id == id){
-              setFavorite(true)
+              // setFavorite(true)
               // setNumberOfFavorites(resource.favorites + 1)
               // resource.favorites = (numberOfFavorites + 1)
               resource.favorites = favorites + 1
