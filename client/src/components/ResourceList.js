@@ -1,15 +1,52 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ResourceCard from "./ResourceCard";
 import ResourceForm from "./ResourceForm";
 
 const ResourceList = ({ setResources, resources }) => {
+  const [inputForm, setInputForm] = useState("");
+
   useEffect(() => {
     fetch(`/resources`)
       .then((res) => res.json())
       .then((resources) => setResources(resources));
   }, []);
 
-  const resourceList = [...resources].map((resource) => {
+  const handleChange = (e) => {
+    setInputForm(e.target.value);
+  };
+
+  const results = resources.filter((resource) => {
+      if (resource.title.includes(inputForm)){
+        return resource
+      }
+    });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // const results = resources.filter((resource) => {
+    //   if (resource.title.includes(inputForm)){
+    //     return resource
+    //   }
+    // });
+    // console.log(results)
+    // return results 
+  };
+
+  // if (e.target.value === "") {
+  //   return resources;
+  // } else {
+  //   return resource.title
+  //     .toLowerCase()
+  //     .includes(e.target.value.toLowerCase());
+  // }
+
+  // (resource.title.toLowerCase().includes(e.target.value.toLowerCase())){
+  //   return resource
+  // } else{
+  //   console.log('nothing found')
+  // }
+
+  const resourceList = results.map((resource) => {
     return (
       <ResourceCard
         key={resource.id}
@@ -22,6 +59,16 @@ const ResourceList = ({ setResources, resources }) => {
 
   return (
     <>
+      <form onSubmit={handleSubmit}>
+        <input
+          className="comment-input"
+          type="text"
+          placeholder="search for a resource..."
+          value={inputForm}
+          onChange={handleChange}
+        ></input>
+        <button>search</button>
+      </form>
       <div>{resourceList}</div>
       <ResourceForm resources={resources} setResources={setResources} />
     </>
