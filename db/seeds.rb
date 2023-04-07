@@ -29,75 +29,69 @@ user5 = User.create(
 puts "seeding topics..."
 
 topic1 = Topic.create(
-    title: "topic 1",
-    image_url: "https://blog.allaboutlearningpress.com/wp-content/uploads/2015/07/Silent-E-Featured-540x400.png",
-    description: "The silent e hides behind a consonant and scares a vowel to say its own name!",
+    title: "photography",
+    image_url: "https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxjdUl2Rko5SHNkSXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+    description: "to become a better photographer",
     )
 topic2 = Topic.create(
-    title: "topic 2",
-    image_url: "https://res.cloudinary.com/teepublic/image/private/s--mEymW5CG--/c_fit,g_north_west,h_816,w_840/co_000000,e_outline:40/co_000000,e_outline:inner_fill:1/co_ffffff,e_outline:40/co_ffffff,e_outline:inner_fill:1/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1590857515/production/designs/10793192_0.jpg",
-    description: "Strong writers always prove their ideas with text evidence.",
+    title: "literature",
+    image_url: "https://images.unsplash.com/photo-1592355591823-2657dbc25ce0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MnxjdUl2Rko5SHNkSXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+    description: "books to read",
     )
 topic3 = Topic.create(
-    title: "topic 3",
-    image_url: "https://cdn.brainpop.com/english/writing/mainidea/screenshot1.png",
-    description: "Great readers always think about what the text is teaching us while reading. Then they jot the main idea at the end of the text.",
+    title: "yoga",
+    image_url: "https://images.unsplash.com/photo-1562751362-404243c2eea3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3xjdUl2Rko5SHNkSXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+    description: "for your inner yogi",
     )
 topic4 = Topic.create(
-    title: "topic 4",
-    image_url: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*euRdVF_C82YBDrmftlwopw.jpeg",
-    description: "Most of the things we capitalize in English are what we refer to as ‘proper nouns.’ They are the names of specific and unique things.",
+    title: "writing",
+    image_url: "https://images.unsplash.com/photo-1579017308347-e53e0d2fc5e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXxjdUl2Rko5SHNkSXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+    description: "write it out",
     )
 topic5 = Topic.create(
-    title: "topic 5",
-    image_url: "https://filestore.medicineslearningportal.org/image_urls/istock%20punctuation.png",
-    description: "The marks, such as period, comma, and parentheses, used in writing to separate sentences and their elements and to clarify meaning.",
+    title: "mental health",
+    image_url: "https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NnxjdUl2Rko5SHNkSXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+    description: "take care of your inner self",
     )
 topic6 = Topic.create(
-    title: "topic 6",
-    image_url: "https://cupsandthoughts.files.wordpress.com/2017/09/gxub4080.jpg?w=2240",
-    description: "Annotating allows readers to keep track of key details while reading.",
+    title: "development",
+    image_url: "https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHxjdUl2Rko5SHNkSXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+    description: "learn to code things",
     )
 
 puts "seeding resources..."
 
 resource1 = Resource.create(
-    title: "resource1",
-    description: "youtube video that explains ___.",
+    title: "Learn React In 30 Minutes",
+    description: "youtube video that teaches React",
     website_url: "https://www.youtube.com/watch?v=hQAHSlTtcmY&ab_channel=WebDevSimplified",
-    # topic_id: topic1.id,
     favorites: 0
-    # creator_id: user1.id
     )
 resource2 = Resource.create(
-    title: "resource2",
-    description: "blog that explains how to build a backend",
+    title: "Building the backend for a full stack web app",
+    description: "blog that explains how to build the backend for a full stack app",
     website_url: "https://dev.to/jsongcodes/building-a-backend-for-a-full-stack-web-app-4if",
-    # topic_id: topic2.id,
     favorites: 1
-    # creator_id: user2.id
     )
 resource3 = Resource.create(
-    title: "resource3",
-    description: "podcast to help you ___",
+    title: "Communication 101 & conflict resolution",
+    description: "podcast to help you become better at communicating and resolving conflicts",
     website_url: "https://open.spotify.com/episode/6tEUG2LYIiqIOVjfFDNjls",
-    # topic_id: topic3.id,
     favorites: 2
-    # creator_id: user3.id
     )
 
 puts "seeding notes..."
 
 note1 = Note.create(
-    content: "note1",
+    content: "components, state, props, rendering, event handling",
     resource_id: resource1.id,
     user_id: user1.id)
 note2 = Note.create(
-    content: "note2",
+    content: "need to learn how to create models",
     resource_id: resource2.id,
     user_id: user2.id)
 note3 = Note.create(
-    content: "note3",
+    content: "can be useful in my relationships",
     resource_id: resource3.id,
     user_id: user3.id)
 

@@ -13,6 +13,10 @@ class ResourcesController < ApplicationController
         # resource = @current_user.resources.create!(resource_params)
 
         resource = Resource.create!(resource_params)
+        # take obj params out of the 
+        # dropdown of topics iterate through those ids to create topic
+        # if it doesn't exist, it will need to be created 
+        # look through documentation for has_many associations
         render json: resource, status: :created
     end
 
@@ -53,6 +57,6 @@ class ResourcesController < ApplicationController
     end
 
     def resource_params
-        params.permit(:topic_id, :website_url, :title, :description, :favorites, :resources_topics)
+        params.permit(:website_url, :title, :description, :favorites, :topics, :resources_topics)
     end
 end

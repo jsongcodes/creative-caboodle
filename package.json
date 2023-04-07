@@ -13,10 +13,8 @@
   "dependencies": {
     "@chatscope/chat-ui-kit-react": "^1.10.1",
     "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
     "@fontsource/roboto": "^4.5.8",
     "@mui/material": "^5.11.16",
-    "@mui/material-next": "^6.0.0-alpha.80",
     "openai": "^3.2.1"
   },
   "devDependencies": {
