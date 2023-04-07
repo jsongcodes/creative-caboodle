@@ -16,11 +16,11 @@ class TopicsController < ApplicationController
         render json: resources, status: :ok
     end
 
-    # def create
-    #     # topic = @current_user.topics.create!(topic_params)
-    #     topic = topics.create!(topic_params)
-    #     render json: topic, status: :created
-    # end
+    def create
+        # topic = @current_user.topics.create!(topic_params)
+        topic = Topic.create!(topic_params)
+        render json: topic, status: :created
+    end
 
     private 
 

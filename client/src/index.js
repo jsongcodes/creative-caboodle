@@ -5,6 +5,8 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter} from "react-router-dom";
 import {SampleProvider} from "./context/sample";
+import { Configuration, OpenAIApi } from "openai";
+
 
 ReactDOM.render(
   <SampleProvider>

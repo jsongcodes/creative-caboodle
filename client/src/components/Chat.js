@@ -7,7 +7,7 @@ const systemMessage = {
     "role": "system", "content": "Explain things like you're talking to a software professional with 2 years of experience."
   }
 
-const API_KEY = process.env.OPENAI_API_KEY
+const API_KEY = process.env.REACT_APP_OPENAI_API_KEY
 
   function Chat() {
     const [messages, setMessages] = useState([

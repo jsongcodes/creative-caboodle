@@ -1,5 +1,5 @@
 class Topic < ApplicationRecord
-    has_many :resources_topics
+    has_many :resources_topics, dependent: :destroy
     has_many :resources, through: :resources_topics
 
     validates :title, presence: true

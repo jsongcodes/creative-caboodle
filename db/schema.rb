@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_05_183211) do
+ActiveRecord::Schema.define(version: 2023_04_07_095227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "likes", force: :cascade do |t|
-    t.bigint "resource_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["resource_id"], name: "index_likes_on_resource_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
-  end
 
   create_table "notes", force: :cascade do |t|
     t.string "content"
@@ -81,8 +72,6 @@ ActiveRecord::Schema.define(version: 2023_04_05_183211) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "likes", "resources"
-  add_foreign_key "likes", "users"
   add_foreign_key "resources_topics", "resources"
   add_foreign_key "resources_topics", "topics"
 end
