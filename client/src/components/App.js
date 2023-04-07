@@ -67,9 +67,9 @@ const App = () => {
         <Route exact path="/resources">
           <ResourceList setResources={setResources} resources={resources} />
         </Route>
-        <Route exact path="/newresource">
+        {/* <Route exact path="/newresource">
           <ResourceForm setResources={setResources} resources={resources} />
-        </Route>
+        </Route> */}
         <Route exact path="/help">
           <Chat />
         </Route>
