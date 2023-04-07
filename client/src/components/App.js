@@ -12,14 +12,29 @@ import { UserContext } from "../context/user";
 import Chat from "./Chat";
 import ResourceForm from "./ResourceForm";
 
+
 import MuiAppBar from '@mui/material/AppBar';
 
-// function AppBar(props) {
-//   return <MuiAppBar elevation={0} position="fixed" {...props} />;
-// }
-
-// export default AppBar;
-
+// const theme = createTheme({
+//   components: {
+//     MuiTypography: {
+//       defaultProps: {
+//         variantMapping: {
+//           h1: 'h2',
+//           h2: 'h2',
+//           h3: 'h2',
+//           h4: 'h2',
+//           h5: 'h2',
+//           h6: 'h2',
+//           subtitle1: 'h2',
+//           subtitle2: 'h2',
+//           body1: 'span',
+//           body2: 'span',
+//         },
+//       },
+//     },
+//   },
+// });
 
 
 const App = () => {
@@ -55,7 +70,7 @@ const App = () => {
       <Navbar handleLogout={handleLogout} />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home  topics={topics} setTopics={setTopics}/>
         </Route>
         <Route exact path="/topics">
           <TopicList topics={topics} setTopics={setTopics} />
