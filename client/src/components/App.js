@@ -12,6 +12,16 @@ import { UserContext } from "../context/user";
 import Chat from "./Chat";
 import ResourceForm from "./ResourceForm";
 
+import MuiAppBar from '@mui/material/AppBar';
+
+// function AppBar(props) {
+//   return <MuiAppBar elevation={0} position="fixed" {...props} />;
+// }
+
+// export default AppBar;
+
+
+
 const App = () => {
   const [user, setUser] = useContext(UserContext);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -41,6 +51,7 @@ const App = () => {
 
   return (
     <>
+          <MuiAppBar elevation={0} position="fixed"  />
       <Navbar handleLogout={handleLogout} />
       <Switch>
         <Route exact path="/">

@@ -20,10 +20,6 @@ const Navbar = ({ onLogout }) => {
   return (
     <>
       <h1>Creative Caboodle</h1>
-      <h2>
-        A platform designed to give users a space to store their sources of
-        inspiration, such as: blogs, videos, images, or podcasts.{" "}
-      </h2>
       <div className="navbar-background">
         <p className="welcome">welcome, {user.username}!</p>
         <button onClick={handleLogoutClick} className="nav-button">

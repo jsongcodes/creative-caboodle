@@ -53,6 +53,6 @@ class ResourcesController < ApplicationController
     end
 
     def resource_params
-        params.permit(:topic_id, :website_url, :title, :free, :description, :favorites, :resources_topics)
+        params.permit(:topic_id, :website_url, :title, :description, :favorites, :resources_topics)
     end
 end

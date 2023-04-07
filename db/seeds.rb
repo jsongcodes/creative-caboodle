@@ -63,7 +63,6 @@ puts "seeding resources..."
 
 resource1 = Resource.create(
     title: "resource1",
-    free: true,
     description: "youtube video that explains ___.",
     website_url: "https://www.youtube.com/watch?v=hQAHSlTtcmY&ab_channel=WebDevSimplified",
     # topic_id: topic1.id,
@@ -72,7 +71,6 @@ resource1 = Resource.create(
     )
 resource2 = Resource.create(
     title: "resource2",
-    free: true,
     description: "blog that explains how to build a backend",
     website_url: "https://dev.to/jsongcodes/building-a-backend-for-a-full-stack-web-app-4if",
     # topic_id: topic2.id,
@@ -81,7 +79,6 @@ resource2 = Resource.create(
     )
 resource3 = Resource.create(
     title: "resource3",
-    free: false,
     description: "podcast to help you ___",
     website_url: "https://open.spotify.com/episode/6tEUG2LYIiqIOVjfFDNjls",
     # topic_id: topic3.id,

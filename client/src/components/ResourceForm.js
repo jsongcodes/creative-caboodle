@@ -6,16 +6,11 @@ const ResourceForm = ({topicId, resources, setResources}) => {
     website_url: "",
     description: ""
   });  
-  // const [free, setFree] = useState(false);
   const [errors, setErrors] = useState([]);
 
   const handleChange = (e) => {
     setInputForm({ ...inputForm, [e.target.name]: e.target.value });
   };
-
-  // const handleCheckboxChange = (e) => {
-  //   setFree(!free)
-  // }
 
   const addNewResource = (newResource) => {
     setResources((resources) => [newResource, ...resources]);
@@ -55,16 +50,6 @@ const ResourceForm = ({topicId, resources, setResources}) => {
             onChange={handleChange}
           ></input>
         </div>
-        {/* <div>
-          Free?
-          <input
-            className="comment-input"
-            name="free"
-            type="checkbox"
-            value={inputForm.free}
-            onChange={handleCheckboxChange}
-          ></input>
-        </div> */}
         <div>
           <input
             className="comment-input"

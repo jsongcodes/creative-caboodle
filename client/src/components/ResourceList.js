@@ -15,30 +15,11 @@ const ResourceList = ({ setResources, resources }) => {
     setInputForm(e.target.value);
   };
 
-  // const results = resources.filter(resource => {
-  //   return resource.title.toLowerCase().includes(inputForm.toLowerCase());
-  // })
+  const results = resources.filter(resource => {
+    return resource.title.toLowerCase().includes(inputForm.toLowerCase());
+  })
 
-
-
-  // const results = resources.filter((resource) => {
-  //   if (resource.title.includes(inputForm)){
-  //     return resource
-  //   }
-  // });
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // const results = resources.filter((resource) => {
-  //   //   if (resource.title.includes(inputForm)){
-  //   //     return resource
-  //   //   }
-  //   // });
-  //   // console.log(results)
-  //   // return results 
-  // };
-
-  const resourceList = resources.map((resource) => {
+  const resourceList = results.map((resource) => {
     return (
       <ResourceCard
         key={resource.id}
@@ -51,9 +32,7 @@ const ResourceList = ({ setResources, resources }) => {
 
   return (
     <>
-      <form 
-      // onSubmit={handleSubmit}
-      >
+      <form>
         <input
           className="comment-input"
           type="text"

@@ -62,7 +62,6 @@ const ResourceCard = ({ resource, topicId, resources, setResources }) => {
         </Link>
         <div>link: {website_url}</div>
         <div>description: {description}</div>
-        <div>free?</div>
         <div>number of likes: {favorites}</div>
         {favorite ? (
           <button
