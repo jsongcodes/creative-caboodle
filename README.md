@@ -1,5 +1,4 @@
 # creative caboodle | A Full Stack App
-
 creative caboodle is a React/Rails web application designed to give users a space to store their sources of inspiration and leave notes on it.
 
 ## General Information
@@ -47,7 +46,7 @@ npm start --prefix client
 ![Screenshot of component hierarchy](https://imgtr.ee/images/2023/04/02/UEJWq.png)
 ### App
 * Customize theme with Mui
-* Ability to add users and login
+* Ability to add users (sign up) and login
 * Persistent login using cookies
 * Responsive design
 
@@ -55,9 +54,10 @@ npm start --prefix client
 * View various topics
 
 ### Resources
-* Search for the most popular resources
 * View existing resources
 * Create new resources for topics
+* Search for the most popular resource
+* Like resources
 
 ### Notes
 * Users are only able to view their own notes
@@ -66,7 +66,7 @@ npm start --prefix client
 * Delete notes
 
 ## Backend Relationships
-![Screenshot of backend relationships]()
+![Screenshot of backend relationships](https://imgtr.ee/images/2023/04/07/kithi.png)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
