@@ -1,23 +1,23 @@
 import { useState, createContext } from "react";
 
 // create the context object
-const SampleContext = createContext();
+const UserContext = createContext();
 
 // create the context provider (component)
-function SampleProvider({ children }) {
+function UserProvider({ children }) {
   const [user, setUser] = useState(null);
 
   const value = [user, setUser]
 
   return (
-    <SampleContext.Provider value={value}>{children}</SampleContext.Provider>
+    <UserContext.Provider value={value}>{children}</UserContext.Provider>
   );
 }
 
 // export
-export { SampleContext, SampleProvider };
+export { UserContext, UserProvider };
 
 // ReactDOM.render(
-//    <SampleProvider>
+//    <UserProvider>
 //      <App />
-//    </SampleProvider>
+//    </UserProvider>

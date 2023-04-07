@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { SampleContext } from "../context/sample";
+import { UserContext } from "../context/user";
 import { useContext } from "react";
 
 const Navbar = ({ onLogout }) => {
-  const [user, setUser] = useContext(SampleContext);
+  const [user, setUser] = useContext(UserContext);
 
   const handleLogoutClick = () => {
     fetch("/logout", {

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import {useContext} from "react";
-import {SampleContext} from "../context/sample";
+import {UserContext} from "../context/user";
 
 const NoteForm = ({resourceId, addNewNote}) => {
-  const [user, setUser] = useContext(SampleContext);
+  const [user, setUser] = useContext(UserContext);
   const [inputForm, setInputForm] = useState({
     resource_id: resourceId,
     user_id: user.id,

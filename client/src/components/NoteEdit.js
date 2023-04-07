@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useContext } from "react";
-import { SampleContext } from "../context/sample";
+import { UserContext } from "../context/user";
 
 const NoteEdit = ({ note, handleDeleteNote, handleUpdateNote }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(note.content);
-  const [user, setUser] = useContext(SampleContext);
+  const [user, setUser] = useContext(UserContext);
 
   const onUpdateNote = () => {
     setIsEditing(!isEditing);

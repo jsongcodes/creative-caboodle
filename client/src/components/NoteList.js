@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import NoteEdit from "./NoteEdit";
 import { useContext } from "react";
-import { SampleContext } from "../context/sample";
+import { UserContext } from "../context/user";
 
 const NoteList = ({
   topics,
@@ -13,7 +13,7 @@ const NoteList = ({
   resourceId,
 }) => {
   const [errors, setErrors] = [""];
-  const [user, setUser] = useContext(SampleContext);
+  const [user, setUser] = useContext(UserContext);
 
   useEffect(() => {
     fetch(`/resources/${resourceId}/notes`).then((res) => {

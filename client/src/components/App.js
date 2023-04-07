@@ -8,12 +8,12 @@ import ResourceList from "./ResourceList";
 import Topic from "./Topic";
 import Resource from "./Resource";
 import Home from "./Home";
-import { SampleContext } from "../context/sample";
+import { UserContext } from "../context/user";
 import Chat from "./Chat";
 import ResourceForm from "./ResourceForm";
 
 const App = () => {
-  const [user, setUser] = useContext(SampleContext);
+  const [user, setUser] = useContext(UserContext);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [topics, setTopics] = useState([]);
   const [resources, setResources] = useState([]);
@@ -67,9 +67,9 @@ const App = () => {
         <Route exact path="/resources">
           <ResourceList setResources={setResources} resources={resources} />
         </Route>
-        {/* <Route exact path="/newresource">
+        <Route exact path="/newresource">
           <ResourceForm setResources={setResources} resources={resources} />
-        </Route> */}
+        </Route>
         <Route exact path="/help">
           <Chat />
         </Route>
