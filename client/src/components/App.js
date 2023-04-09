@@ -70,7 +70,7 @@ const App = () => {
           <ResourceList setResources={setResources} resources={resources} />
         </Route>
         <Route exact path="/newresource">
-          <ResourceForm setResources={setResources} resources={resources} />
+          <ResourceForm setResources={setResources} resources={resources} topics={topics} setTopics={setTopics}/>
         </Route>
         <Route exact path="/help">
           <Chat />

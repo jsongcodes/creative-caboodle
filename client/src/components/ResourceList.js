@@ -102,6 +102,7 @@ const ResourceList = ({ setResources, resources }) => {
                   resource={resource}
                   setResources={setResources}
                   resources={resources}
+                  resourceId={resource.id}
                 />
                 <meta property="og:url" content={resource.website_url}></meta>
               </Card>

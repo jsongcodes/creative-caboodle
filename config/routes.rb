@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
 
-  # resources :resources do
-  #   resources :likes
+  # resources :resources do 
+  #   post 'resources_topic', to: 'resources#create_resources_topic'
   # end
 
   # post 'ai_request', to 'pages#ai_request'

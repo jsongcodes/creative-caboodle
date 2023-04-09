@@ -23,11 +23,12 @@ const theme = createTheme({
   },
 });
 
-const ResourceForm = ({ topicId, resources, setResources }) => {
+const ResourceForm = ({ topicId, resources, setResources, resourceId }) => {
   const [inputForm, setInputForm] = useState({
     title: "",
     website_url: "",
     description: "",
+    // topicId
   });
   const [errors, setErrors] = useState([]);
 
@@ -44,7 +45,13 @@ const ResourceForm = ({ topicId, resources, setResources }) => {
     fetch(`/resources`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(inputForm),
+      body: JSON.stringify({inputForm
+    //     title: title,
+    //   website_url: website_url,
+    // description: description,
+    // resources_topic_attributes: resources_topic.map((resources_topic)
+    // )
+  }),
     }).then((res) => {
       if (!res.ok) {
         res.json().then((err) => {
@@ -112,7 +119,17 @@ const ResourceForm = ({ topicId, resources, setResources }) => {
           noValidate
           autoComplete="off"
           onSubmit={(e) => handleSubmit(e)}
-        >
+        ><div>
+        {/* <TextField
+          name="topic_id"
+          type="text"
+          placeholder="Enter topic_id"
+          value={inputForm.topicId}
+          onChange={handleChange}
+        />
+         */}
+         <p>topic id = {topicId}</p>
+      </div>
           <div>
             <TextField
               name="title"

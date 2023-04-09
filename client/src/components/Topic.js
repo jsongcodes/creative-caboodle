@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
+import ResourceForm from "./ResourceForm";
 
 const Topic = ({ resources, setResources }) => {
   const [topicInfo, setTopicInfo] = useState([]);
@@ -44,7 +45,7 @@ const Topic = ({ resources, setResources }) => {
           </Link> */}
 
       </Grid>
-      <Button
+      {/* <Button
               href={`/newresource`}
               style={{
                 backgroundColor: "#A13E70",
@@ -55,7 +56,9 @@ const Topic = ({ resources, setResources }) => {
               variant="contained"
             >
               add new resource
-            </Button>
+            </Button> */}
+            {/* <ResourceForm
+            topicId={topicInfo.id}/> */}
     </div>
   );
 };
