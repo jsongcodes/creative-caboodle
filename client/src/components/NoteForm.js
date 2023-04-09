@@ -9,7 +9,6 @@ const NoteForm = ({resourceId, addNewNote}) => {
     user_id: user.id,
     content: ""
   });
-
   const [errors, setErrors] = useState([]);
 
   const handleChange = (e) => {

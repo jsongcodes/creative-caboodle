@@ -1,25 +1,10 @@
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import { useState } from "react";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import { createTheme } from '@mui/material/styles';
-import { indigo, lightBlue } from '@mui/material/colors';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#7986cb',
-    },
-    secondary: {
-      main: '#b3e5fc',
-    },
-  },
-});
 
 const Login = ({ onLogin }) => {
   const [showLogin, setShowLogin] = useState(true);

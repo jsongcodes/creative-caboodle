@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Montserrat+Alternates&display=swap');
+
+.font {
+    font-family: 'Coiny', cursive;
+}
+
+* {
+    /* font-family: 'Coiny', cursive; */
+    font-family: 'Montserrat Alternates', sans-serif;
+  }
+
+#topicCardTitle{
+    font-family: 'Coiny', cursive;
+    text-align: center;
+text-decoration: none;
+color: #A13E70;
+display: block;
+/* align-items: top; */
+font-size: 30px;
+padding: 10px;
+}
+
+#home{
+    text-shadow: 10px 10px 10px #87805E;
+        flex-direction: column;
+        padding-bottom: 2rem;
+    font-family: 'Coiny', cursive;
+    color: white;
+}
+
+#description{
+
+    text-align: center;
+text-decoration: none;
+/* color: #A13E70; */
+display: block;
+/* align-items: top; */
+font-size: 17px;
+padding: 10px;
+}

@@ -11,31 +11,7 @@ import Home from "./Home";
 import { UserContext } from "../context/user";
 import Chat from "./Chat";
 import ResourceForm from "./ResourceForm";
-
-
-import MuiAppBar from '@mui/material/AppBar';
-
-// const theme = createTheme({
-//   components: {
-//     MuiTypography: {
-//       defaultProps: {
-//         variantMapping: {
-//           h1: 'h2',
-//           h2: 'h2',
-//           h3: 'h2',
-//           h4: 'h2',
-//           h5: 'h2',
-//           h6: 'h2',
-//           subtitle1: 'h2',
-//           subtitle2: 'h2',
-//           body1: 'span',
-//           body2: 'span',
-//         },
-//       },
-//     },
-//   },
-// });
-
+import MuiAppBar from "@mui/material/AppBar";
 
 const App = () => {
   const [user, setUser] = useContext(UserContext);
@@ -66,11 +42,11 @@ const App = () => {
 
   return (
     <>
-          <MuiAppBar elevation={0} position="fixed"  />
+      <MuiAppBar elevation={0} position="fixed" />
       <Navbar handleLogout={handleLogout} />
       <Switch>
         <Route exact path="/">
-          <Home  topics={topics} setTopics={setTopics}/>
+          <Home topics={topics} setTopics={setTopics} />
         </Route>
         <Route exact path="/topics">
           <TopicList topics={topics} setTopics={setTopics} />

@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
+
 require('dotenv').config()
+
 
 const systemMessage = { 
     "role": "system", "content": "Explain things like you're talking to a software professional with 2 years of experience."
@@ -79,8 +81,7 @@ const API_KEY = process.env.REACT_APP_OPENAI_API_KEY
     }
   
     return (
-      <div className="App">
-        <div style={{ position:"relative", height: "800px", width: "700px"  }}>
+        <div style={{ padding: "30px", height: "650px"  }}>
           <MainContainer>
             <ChatContainer>       
               <MessageList 
@@ -88,15 +89,13 @@ const API_KEY = process.env.REACT_APP_OPENAI_API_KEY
                 typingIndicator={isTyping ? <TypingIndicator content="ChatGPT is typing" /> : null}
               >
                 {messages.map((message, i) => {
-                  console.log(message)
                   return <Message key={i} model={message} />
                 })}
               </MessageList>
-              <MessageInput placeholder="Type message here" onSend={handleSend} />        
+              <MessageInput placeholder="Ask ChatGPT for resourcess" onSend={handleSend} />        
             </ChatContainer>
           </MainContainer>
         </div>
-      </div>
     )
   }
   

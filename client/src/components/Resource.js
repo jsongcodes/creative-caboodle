@@ -1,13 +1,14 @@
 import NoteList from "./NoteList";
 import NoteForm from "./NoteForm";
 import { useState, useContext } from "react";
-import {UserContext} from "../context/user";
+// import {useContext } from "react";
+// import {UserContext} from "../context/user";
 
 const Resource = ({ resource = {}, 
   setResources}) => {
-  const { id, topic_id, video_url, website_url} = resource;
+  const { id, website_url} = resource;
   const [notes, setNotes] = useState([]);
-  const [user, setUser] = useContext(UserContext);
+  // const [user, setUser] = useContext(UserContext);
 
   const addNewNote = (newNote) => {
     setNotes((notes) => [newNote, ...notes]);

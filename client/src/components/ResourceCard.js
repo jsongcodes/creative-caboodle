@@ -1,25 +1,10 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 const ResourceCard = ({ resource, topicId, resources, setResources }) => {
   const { id, title, description, website_url, favorites } = resource;
-
   const [favorite, setFavorite] = useState(false);
-  // const [numberOfFavorites, setNumberOfFavorites] = useState(resource.favorites);
-  const [errors, setErrors] = useState([])
-
-  // useEffect(() => {
-  //   fetch(`/resources`)
-  //     .then((res) => res.json())
-  //     .then((resources) => setResources(resources))
-  //     .then(console.log('useeffect: ', numberOfFavorites))
-  // }, []);
-
-  // const updateFavoriteCounter = (data) => {
-  //   setFavorite(true)
-  //   setNumberOfFavorites(numberOfFavorites + 1)
-  //   console.log(numberOfFavorites)
-  // }
+  // const [errors, setErrors] = useState([])
 
   const handleFavoriteClick = () => {
     fetch(`/resources/${id}`, {
@@ -36,7 +21,7 @@ const ResourceCard = ({ resource, topicId, resources, setResources }) => {
       } else {
         setResources((resources) => {
           let updatedResources = resources.map((resource) => {
-            if (resource.id == id){
+            if (resource.id === id){
               // setFavorite(true)
               // setNumberOfFavorites(resource.favorites + 1)
               // resource.favorites = (numberOfFavorites + 1)
