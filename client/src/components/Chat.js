@@ -1,16 +1,11 @@
 import { useState } from 'react'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
-
 require('dotenv').config()
-
 
 const systemMessage = { 
     "role": "system", "content": "Explain things like you're talking to a software professional with 2 years of experience."
   }
-
-
-  //hi
 
 const API_KEY = process.env.REACT_APP_OPENAI_API_KEY
 
@@ -92,7 +87,7 @@ const API_KEY = process.env.REACT_APP_OPENAI_API_KEY
                   return <Message key={i} model={message} />
                 })}
               </MessageList>
-              <MessageInput placeholder="Ask ChatGPT for resourcess" onSend={handleSend} />        
+              <MessageInput placeholder="ask ChatGPT for resources" onSend={handleSend} />        
             </ChatContainer>
           </MainContainer>
         </div>

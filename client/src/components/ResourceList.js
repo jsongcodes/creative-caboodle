@@ -6,9 +6,31 @@ import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import Link from "@mui/material/Link";
+
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#A13E70",
+    },
+    secondary: {
+      main: "#A13E70",
+    },
+  },
+});
 
 const ResourceList = ({ setResources, resources }) => {
   const [inputForm, setInputForm] = useState("");
+  const [mostPopular, setMostPopular] = useState("");
+
+  const handleButtonClick = () => {
+    fetch("/resources/mostpopular")
+      .then((r) => r.json())
+      .then((r) => setMostPopular(r))
+  };
 
   useEffect(() => {
     fetch(`/resources`)
@@ -24,39 +46,17 @@ const ResourceList = ({ setResources, resources }) => {
     return resource.title.toLowerCase().includes(inputForm.toLowerCase());
   });
 
-  // const resourceList = results.map((resource) => {
-  //   return (
-
-  //     <ResourceCard
-  //       key={resource.id}
-  //       resource={resource}
-  //       setResources={setResources}
-  //       resources={resources}
-  //     />
-  //   );
-  // });
-
   return (
-    <>
-      {/* <form>
-        <input
-          className="comment-input"
-          type="text"
-          placeholder="search for a resource title..."
-          value={inputForm}
-          onChange={handleChange}
-        ></input>
-      </form> */}
+    <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <Box
           component="form"
           className="home-class"
           sx={{
-            "& .MuiTextField-root": { m: 1, width: "40ch" },
+            "& .MuiTextField-root": { m: 5, width: "40ch" },
           }}
           noValidate
           autoComplete="off"
-          // onSubmit={handleSubmit}
         >
           <div>
             <TextField
@@ -66,10 +66,22 @@ const ResourceList = ({ setResources, resources }) => {
               onChange={handleChange}
             />
           </div>
+          <div className="description"><Button
+
+            onClick={handleButtonClick}
+            style={{
+              backgroundColor: "#A13E70",
+              padding: "10px 20px",
+              color: "#FFFFFF",
+              borderRadius: 5
+            }}
+            variant="contained"
+          >
+            most popular
+          </Button>
+          <div><Link href={`/resources/${mostPopular.id}`} className="cardTitle" underline="none">{mostPopular.title}</Link></div></div>
         </Box>
       </Container>
-
-      {/* <div>{resourceList}</div> */}
       <div className="home-class">
         {Array.from(Array).map((_, index) => (
           <Grid
@@ -81,7 +93,10 @@ const ResourceList = ({ setResources, resources }) => {
             alignItems="center"
           >
             {results.map((resource) => (
-              <Card key={resource.id} sx={{ maxWidth: 330, margin: "15px" }}>
+              <Card
+                key={resource.id}
+                sx={{ width: 400, height: 350, margin: "15px" }}
+              >
                 <ResourceCard
                   key={resource.id}
                   resource={resource}
@@ -94,8 +109,8 @@ const ResourceList = ({ setResources, resources }) => {
           </Grid>
         ))}
       </div>
-        <ResourceForm resources={resources} setResources={setResources} />
-    </>
+      <ResourceForm resources={resources} setResources={setResources} />
+    </ThemeProvider>
   );
 };
 

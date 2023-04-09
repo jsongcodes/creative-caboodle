@@ -4,10 +4,10 @@ const TopicCard = ({topic}) => {
   const { id, title, description } = topic;
   return (
     <div>
-        <Link to={`/topics/${id}`} id="topicCardTitle">
+        <Link to={`/topics/${id}`} className="cardTitle">
           {title}
         </Link>
-        <p id="description">{description}</p>
+        <p className="description">{description}</p>
     </div>
   );
 };

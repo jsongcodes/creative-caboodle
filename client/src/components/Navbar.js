@@ -2,7 +2,6 @@
 import { UserContext } from "../context/user";
 import { useContext } from "react";
 import Link from "@mui/material/Link";
-
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -10,9 +9,10 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+import MuiMenuItem from "@material-ui/core/MenuItem";
 import Menu from "@mui/material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { withStyles } from "@material-ui/core/styles";
 
 const theme = createTheme({
   palette: {
@@ -28,6 +28,12 @@ const theme = createTheme({
     ]
   },
 });
+
+const MenuItem = withStyles({
+  root: {
+    justifyContent: "center"
+  }
+})(MuiMenuItem);
 
 const Navbar = ({ onLogout }) => {
   const [user, setUser] = useContext(UserContext);

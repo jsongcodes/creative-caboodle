@@ -9,7 +9,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#FFF6FB",
+      main: "#A13E70",
     },
     secondary: {
       main: "#A13E70",
@@ -19,7 +19,7 @@ const theme = createTheme({
     fontFamily: [],
   },
   background: {
-    default: "#A13E70"
+    default: "#A13E70",
   },
 });
 
@@ -63,122 +63,99 @@ const ResourceForm = ({ topicId, resources, setResources }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Box
-          component="section"
-          // sx={{
-          //   display: "flex",
-          //   bgcolor: "#FFF6FB",
-          //   height: "100%"
-          // }}
+        <Container
+          sx={{
+            mt: 10,
+            // mb: 0,
+            position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
         >
-          <Container
-            sx={{
-              mt: 10,
-              mb: 15,
-              position: "relative",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
+          <Typography
+            className="font"
+            variant="h4"
+            component="h2"
+            sx={{ mb: 7, color: "#A13E70" }}
           >
-            <Box
-              component="img"
-              src="https://gitlab.create-ion.at/lt/material-ui/-/raw/v4.0.2/static/themes/onepirate/productCurvyLines.png"
-              alt="curvy lines"
-              sx={{
-                pointerEvents: "none",
-                position: "absolute",
-                top: -180,
-                opacity: 0.7,
-              }}
-            />
-
-            <Typography
-              className="font"
-              variant="h4"
-              component="h2"
-              sx={{ mb: 7, color: "#A13E70" }}
-            >
-              add a resource
-            </Typography>
-            <div>
-              <Box
-                component="form"
-                sx={{
-                  "& .MuiTextField-root": { m: 1, width: "40ch" },
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-                noValidate
-                autoComplete="off"
-                onSubmit={(e) => handleSubmit(e)}
-              >
-                <div>
-                  <TextField
-                    name="title"
-                    type="text"
-                    placeholder="Enter a title..."
-                    value={inputForm.title}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div>
-                  <TextField
-                    name="website_url"
-                    type="text"
-                    placeholder="Enter a website url..."
-                    value={inputForm.website_url}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div>
-                  <TextField
-                    name="description"
-                    type="text"
-                    placeholder="Enter a description..."
-                    value={inputForm.description}
-                    onChange={handleChange}
-                  />
-                </div>
-                <Button
-                  onClick={handleSubmit}
-                  disabled={false}
-                  size="small"
-                  variant="filledTonal"
-                  type="submit"
-                >
-                  submit
-                </Button>
-              </Box>
-            </div>
-          </Container>
-        </Box>
-        {/* <form className="create-comment" onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <input
-            className="comment-input"
-            name="website_url"
-            type="text"
-            placeholder="Enter a website url..."
-            value={inputForm.website_url}
-            onChange={handleChange}
-          ></input>
-        </div>
-        <div>
-          <input
-            className="comment-input"
-            name="description"
-            type="text"
-            placeholder="Enter a description..."
-            value={inputForm.description}
-            onChange={handleChange}
-          ></input>
-        </div>
-
-        <input className="submit-button" type="submit" value="Resource" />
-      </form> */}
+            add a resource
+          </Typography>
+        </Container>
       </ThemeProvider>
+
+      {/* <Box
+        component="section"
+        // sx={{
+        //   display: "flex",
+        //   bgcolor: "#FFF6FB",
+        //   height: "100%"
+        // }}
+      > */}
+      <Container
+        sx={{
+          mb: 5,
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "40ch" },
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+          noValidate
+          autoComplete="off"
+          onSubmit={(e) => handleSubmit(e)}
+        >
+          <div>
+            <TextField
+              name="title"
+              type="text"
+              placeholder="Enter a title..."
+              value={inputForm.title}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <TextField
+              name="website_url"
+              type="text"
+              placeholder="Enter a website url..."
+              value={inputForm.website_url}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <TextField
+              name="description"
+              type="text"
+              placeholder="Enter a description..."
+              value={inputForm.description}
+              onChange={handleChange}
+            />
+          </div>
+          <Button
+            onClick={handleSubmit}
+            disabled={false}
+            style={{
+              backgroundColor: "#A13E70",
+              padding: "10px 20px",
+              color: "#FFFFFF",
+              borderRadius: 5
+            }}
+            variant="contained"
+            type="submit"
+          >
+            submit
+          </Button>
+        </Box>
+      </Container>
     </>
   );
 };

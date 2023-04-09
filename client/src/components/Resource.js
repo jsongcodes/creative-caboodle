@@ -1,12 +1,15 @@
 import NoteList from "./NoteList";
 import NoteForm from "./NoteForm";
 import { useState, useContext } from "react";
-// import {useContext } from "react";
+import Link from "@mui/material/Link";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+// import {useContext } from "react"
 // import {UserContext} from "../context/user";
 
-const Resource = ({ resource = {}, 
-  setResources}) => {
-  const { id, website_url} = resource;
+const Resource = ({ resource = {}, setResources }) => {
+  const { id, title, description, website_url } = resource;
   const [notes, setNotes] = useState([]);
   // const [user, setUser] = useContext(UserContext);
 
@@ -16,12 +19,38 @@ const Resource = ({ resource = {},
 
   return (
     <>
-      <div className="single-post-item">
-        <h3 className="post-card-title">{resource.video_url}</h3>
-        <p className="post-card-description">{resource.website_url}</p>
+      <div className="description">
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-evenly"
+          margin="10px"
+          alignItems="center"
+        >
+          <Card sx={{ width: 600, margin: "15px" }}>
+            <h3 className="cardTitle">{title}</h3>
+            <Button
+              href={`${website_url}`}
+              style={{
+                backgroundColor: "#FFF6FB",
+                padding: "10px 20px",
+                borderRadius: 5
+              }}
+              variant="contained"
+            >
+              link
+            </Button>
+            <p className="description">{description}</p>
+          </Card>
+        </Grid>
+        <NoteList
+          notes={notes}
+          setNotes={setNotes}
+          setResources={setResources}
+          resourceId={id}
+        />
+        <NoteForm addNewNote={addNewNote} resourceId={id} />
       </div>
-      <NoteList notes={notes} setNotes={setNotes} setResources={setResources} resourceId={id}/>
-      <NoteForm addNewNote={addNewNote} resourceId={id} />
     </>
   );
 };

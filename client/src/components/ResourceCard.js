@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
-import { useState} from "react";
+import { useState } from "react";
+import Button from "@mui/material/Button";
 
 const ResourceCard = ({ resource, topicId, resources, setResources }) => {
   const { id, title, description, website_url, favorites } = resource;
   const [favorite, setFavorite] = useState(false);
-  // const [errors, setErrors] = useState([])
 
   const handleFavoriteClick = () => {
     fetch(`/resources/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({favorites: favorites}),
-    })
-    .then((res) => {
+      body: JSON.stringify({ favorites: favorites }),
+    }).then((res) => {
       if (!res.ok) {
         res.json().then((err) => {
           alert(err.errors);
@@ -21,49 +20,32 @@ const ResourceCard = ({ resource, topicId, resources, setResources }) => {
       } else {
         setResources((resources) => {
           let updatedResources = resources.map((resource) => {
-            if (resource.id === id){
+            if (resource.id === id) {
               // setFavorite(true)
               // setNumberOfFavorites(resource.favorites + 1)
               // resource.favorites = (numberOfFavorites + 1)
-              resource.favorites = favorites + 1
-
-              console.log(resource.favorites)
+              resource.favorites = favorites + 1;
             }
-            return resource
-          })
-          return updatedResources
-        })
+            return resource;
+          });
+          return updatedResources;
+        });
       }
     });
-  }
+  };
 
   return (
-      <div>
-        <Link to={`/resources/${id}`}
-          className="post-card-title"
-        >
-          title: {title}
-    
-        </Link>
-        <div>link: {website_url}</div>
-        <div>description: {description}</div>
-        <div>number of likes: {favorites}</div>
-        {favorite ? (
-          <button
-            onClick={() => setFavorite(false)}
-            className="emoji-button favorite active"
-          >
-            ♥
-          </button>
-        ) : (
-          <button
-            onClick={handleFavoriteClick}
-            className="emoji-button favorite"
-          >
-            ♡
-          </button>
-        )}
-      </div>
+    <div>
+      <Button onClick={handleFavoriteClick} >
+        ♡
+      </Button>
+      <Link to={`/resources/${id}`} className="cardTitle">
+        {title}
+      </Link>
+      <div className="description">link: {website_url}</div>
+      <div className="description">description: {description}</div>
+      <div className="description">likes: {favorites}</div>
+    </div>
   );
 };
 

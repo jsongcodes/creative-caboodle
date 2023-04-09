@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Coiny&family=Montserrat+Alternates&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans&display=swap');
 .font {
     font-family: 'Coiny', cursive;
 }
 
 * {
     /* font-family: 'Coiny', cursive; */
-    font-family: 'Montserrat Alternates', sans-serif;
+    font-family: 'Bebas Neue', cursive;
+font-family: 'IBM Plex Sans', sans-serif;
   }
 
-#topicCardTitle{
+.cardTitle{
     font-family: 'Coiny', cursive;
     text-align: center;
 text-decoration: none;
@@ -30,7 +31,7 @@ padding: 10px;
     color: white;
 }
 
-#description{
+.description{
 
     text-align: center;
 text-decoration: none;
@@ -40,3 +41,7 @@ display: block;
 font-size: 17px;
 padding: 10px;
 }
+
+body {
+    background-color: #FFF6FB;
+  }
