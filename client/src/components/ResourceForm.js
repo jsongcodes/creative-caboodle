@@ -143,7 +143,21 @@ const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
           noValidate
           autoComplete="off"
           onSubmit={(e) => handleSubmit(e)}
+<<<<<<< HEAD
         >
+=======
+        ><div>
+        {/* <TextField
+          name="topic_id"
+          type="text"
+          placeholder="Enter topic_id"
+          value={inputForm.topicId}
+          onChange={handleChange}
+        />
+         */}
+         <p>topic id = {topicId}</p>
+      </div>
+>>>>>>> f2ecb87df0533f54d71da415a311079dd2ad975d
           <div>
             <TextField
               name="title"
