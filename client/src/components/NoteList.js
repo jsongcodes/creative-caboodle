@@ -12,7 +12,7 @@ const NoteList = ({
   notes,
   resourceId,
 }) => {
-  const [errors, setErrors] = [""];
+  const [errors, setErrors] = useState([]);
   const [user, setUser] = useContext(UserContext);
 
   useEffect(() => {

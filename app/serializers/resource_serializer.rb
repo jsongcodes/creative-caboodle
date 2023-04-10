@@ -1,5 +1,5 @@
 class ResourceSerializer < ActiveModel::Serializer
-  attributes :id, :website_url,  :title, :description
+  attributes :id, :website_url,  :title, :description, :favorites
 
   has_many :notes
   has_many :users, through: :notes

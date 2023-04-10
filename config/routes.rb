@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   # get '/topics/:id/resources', to: 'topics#resources'
   get '/resources/:id/notes', to: 'resources#notes'
+  # resources :resources do
+  #   resources :notes
+  # end
+
   get '/resources/mostpopular', to: 'resources#mostpopular'
 
   post "/login", to: "sessions#create"

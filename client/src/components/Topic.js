@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import ResourceForm from "./ResourceForm";
+// import ResourceForm from "./ResourceForm";
 
 const Topic = ({ resources, setResources }) => {
   const [topicInfo, setTopicInfo] = useState([]);
@@ -59,7 +59,7 @@ const Topic = ({ resources, setResources }) => {
             </Button> */}
             {/* <ResourceForm
             topicId={topicInfo.id}/> */}
-            <ResourceForm topicId={params.id}/>
+            {/* <ResourceForm topicId={params.id}/> */}
     </div>
   );
 };

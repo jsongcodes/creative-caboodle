@@ -9,28 +9,31 @@ class ResourcesController < ApplicationController
         render json: resource, status: :ok
     end
 
-    def create
-        # resource = @current_user.resources.create!(resource_params)
-
-        resource = Resource.create!(resource_params)
-
-        # take obj params out of the 
-        # dropdown of topics iterate through those ids to create topic
-        # if it doesn't exist, it will need to be created 
-        # look through documentation for has_many associations
-        render json: resource, status: :created
-    end
-
     # def create
-    #     @resource = Resource.new(resource_params)
-    #     if @resource.save
-    #     #   flash[:success] = "Resource created!"
-    #       redirect_to @resource
-    #     else
-    #       render 'new'
-    #     end
+    #     @topic = Topic.find(params[:id])
+    #     resource = @topic.resources.create!(resource_params)
+    #     render json: resource, status: :created
     #   end
 
+      def create
+        @resource = Resource.create!(resource_params)
+        @resource.topics << Topic.where(id: params[:topic_id])
+        # topic_ids
+        render json: @resource, status: :created
+      end
+
+
+    # def create
+    #     # resource = @current_user.resources.create!(resource_params)
+    #     resource = Resource.create!(resource_params)
+    #     # take obj params out of the 
+    #     # dropdown of topics iterate through those ids to create topic
+    #     # if it doesn't exist, it will need to be created 
+    #     # look through documentation for has_many associations
+    #     render json: resource, status: :created
+    # end
+
+   
     # def create
     #     resource_params = params.require(:resource).permit(:title, :website_url, :description, topics_attributes: [:topic_id])
       
@@ -94,7 +97,7 @@ class ResourcesController < ApplicationController
         resources = Resource.all.each do |resource|
             resource.favorites
         end
-        sorted = resources.sort{|a, b| a <=> b}
+        sorted = resources.sort{|a, b| b <=> a}
         highest = sorted.first
         render json: highest, status: :ok
     end
@@ -110,15 +113,18 @@ class ResourcesController < ApplicationController
         Resource.find(params[:id])
     end
 
+
     def resource_params
-        params.permit(:website_url, :title, :description, :resources_topics)
-    end
+        params.require(:resource).permit(:website_url, :title, :description)
+      end
+
+    # def resource_params
+    #     params.permit(:website_url, :title, :description)
+    # end
 
     # def resource_params
     #     params.require(:resource).permit(:title, :description, resources_topics_attributes: [:id, :topic_id])
     #   end
 
-    # def resource_params
-    #     params.require(:resource).permit(:title, :description, :website_url)
-    #   end
+
 end

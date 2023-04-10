@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ResourceCard from "./ResourceCard";
-// import ResourceForm from "./ResourceForm";
+import ResourceForm from "./ResourceForm";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
@@ -9,7 +9,6 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
-
 
 const theme = createTheme({
   palette: {
@@ -22,15 +21,15 @@ const theme = createTheme({
   },
 });
 
-const ResourceList = ({ setResources, resources }) => {
+const ResourceList = ({ setResources, resources, topics, setTopics }) => {
   const [inputForm, setInputForm] = useState("");
   const [mostPopular, setMostPopular] = useState("");
 
-  // const handleButtonClick = () => {
-  //   fetch("/resources/mostpopular")
-  //     .then((r) => r.json())
-  //     .then((r) => setMostPopular(r))
-  // };
+  const handleButtonClick = () => {
+    fetch("/resources/mostpopular")
+      .then((r) => r.json())
+      .then((r) => setMostPopular(r))
+  };
 
   useEffect(() => {
     fetch(`/resources`)
@@ -42,9 +41,9 @@ const ResourceList = ({ setResources, resources }) => {
     setInputForm(e.target.value);
   };
 
-//  const results = resources.filter((resource) => {
-//     return resource.title.toLowerCase().includes(inputForm.toLowerCase());
-//  });
+  const results = resources.filter((resource) => {
+    return resource.title.toLowerCase().includes(inputForm.toLowerCase());
+  });
 
   return (
     <ThemeProvider theme={theme}>
@@ -66,7 +65,7 @@ const ResourceList = ({ setResources, resources }) => {
               onChange={handleChange}
             />
           </div>
-          {/* <div className="description"><Button
+          <div className="description"><Button
 
             onClick={handleButtonClick}
             style={{
@@ -79,7 +78,7 @@ const ResourceList = ({ setResources, resources }) => {
           >
             most popular
           </Button>
-          <div><Link href={`/resources/${mostPopular.id}`} className="cardTitle" underline="none">{mostPopular.title}</Link></div></div> */}
+          <div><Link href={`/resources/${mostPopular.id}`} className="cardTitle" underline="none">{mostPopular.title}</Link></div></div>
         </Box>
       </Container>
       <div className="home-class">
@@ -92,7 +91,7 @@ const ResourceList = ({ setResources, resources }) => {
             margin="10px"
             alignItems="center"
           >
-            {resources.map((resource) => (
+            {results.map((resource) => (
               <Card
                 key={resource.id}
                 sx={{ width: 400, height: 350, margin: "15px" }}
@@ -110,7 +109,7 @@ const ResourceList = ({ setResources, resources }) => {
           </Grid>
         ))}
       </div>
-      {/* <ResourceForm resources={resources} setResources={setResources} /> */}
+      <ResourceForm resources={resources} setResources={setResources} topics={topics} setTopics={setTopics}/>
     </ThemeProvider>
   );
 };
