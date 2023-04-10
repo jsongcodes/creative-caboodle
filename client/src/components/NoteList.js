@@ -79,13 +79,10 @@ const NoteList = ({
         handleUpdateNote={handleUpdateNote}
       />
     );
-    // return <NoteCard key={note.id} note={note}/>
   });
 
   return (
-    <>
       <div>{noteList}</div>
-    </>
   );
 };
 

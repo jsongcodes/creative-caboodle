@@ -9,19 +9,18 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Alert from '@mui/material/Alert';
+import Alert from "@mui/material/Alert";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FFF6FB',
+      main: "#FFF6FB",
     },
     secondary: {
-      main: '#A13E70',
+      main: "#A13E70",
     },
   },
 });
-
 
 const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -44,92 +43,70 @@ const LoginForm = ({ onLogin }) => {
   };
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <Container component="main" maxWidth="xs">
-          <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            login
+          </Typography>
           <Box
-            sx={{
-              marginTop: 8,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
+            component="form"
+            onSubmit={handleLogin}
+            noValidate
+            sx={{ mt: 1 }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              login
-            </Typography>
-            <Box
-              component="form"
-              onSubmit={handleLogin}
-              noValidate
-              sx={{ mt: 1 }}
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="username"
+              name="username"
+              value={username}
+              autoComplete="username"
+              onChange={(e) => setUsername(e.target.value)}
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
             >
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="username"
-                label="username"
-                name="username"
-                value={username}
-                autoComplete="username"
-                onChange={(e) => setUsername(e.target.value)}
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                log in
-              </Button>
-              {errors.map((err) => (
-                <Alert severity="error">
-                  <error key={err}>{err}</error>
-                </Alert>
-              ))}
-            </Box>
+              log in
+            </Button>
+            {errors.map((err) => (
+              <Alert severity="error">
+                <error key={err}>{err}</error>
+              </Alert>
+            ))}
           </Box>
-        </Container>
-      </ThemeProvider>
-      {/* <form onSubmit={handleLogin}>
-        <label>username</label>
-        <input
-          type="text"
-          autoComplete="off"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor="password">password</label>
-        <input
-          type="password"
-          autoComplete="current-password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">login</button>
-        {errors.map((err) => (
-          <error key={err}>{err}</error>
-        ))}
-      </form> */}
-    </>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 };
 

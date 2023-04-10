@@ -65,7 +65,6 @@ const NoteForm = ({ resourceId, addNewNote }) => {
         <Container
           sx={{
             mt: 5,
-            // mb: 0,
             position: "relative",
             display: "flex",
             flexDirection: "column",

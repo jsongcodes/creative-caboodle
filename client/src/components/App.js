@@ -10,7 +10,6 @@ import Resource from "./Resource";
 import Home from "./Home";
 import { UserContext } from "../context/user";
 import Chat from "./Chat";
-// import ResourceForm from "./ResourceForm";
 import MuiAppBar from "@mui/material/AppBar";
 
 const App = () => {
@@ -73,11 +72,13 @@ const App = () => {
           )}
         ></Route>
         <Route exact path="/resources">
-          <ResourceList setResources={setResources} resources={resources} topics={topics} setTopics={setTopics}/>
+          <ResourceList
+            setResources={setResources}
+            resources={resources}
+            topics={topics}
+            setTopics={setTopics}
+          />
         </Route>
-        {/* <Route exact path="/newresource">
-          <ResourceForm setResources={setResources} resources={resources} topics={topics} setTopics={setTopics}/>
-        </Route> */}
         <Route exact path="/help">
           <Chat />
         </Route>

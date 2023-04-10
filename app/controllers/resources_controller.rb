@@ -17,11 +17,9 @@ class ResourcesController < ApplicationController
 
       def create
         @resource = Resource.create!(resource_params)
-        @resource.topics << Topic.where(id: params[:topic_id])
-        # topic_ids
+        @resource.topics << Topic.where(id: params[:topic_ids])
         render json: @resource, status: :created
       end
-
 
     # def create
     #     # resource = @current_user.resources.create!(resource_params)
@@ -115,7 +113,8 @@ class ResourcesController < ApplicationController
 
 
     def resource_params
-        params.require(:resource).permit(:website_url, :title, :description)
+        params.require(:resource).permit(:website_url, :title, :favorites, :description, topic_ids: [])
+        # :topic_id
       end
 
     # def resource_params

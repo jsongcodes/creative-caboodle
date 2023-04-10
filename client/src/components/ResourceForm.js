@@ -24,26 +24,12 @@ const theme = createTheme({
 });
 
 const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
-  // const [inputForm, setInputForm] = useState({
-  //   title: "",
-  //   description: "",
-  //   website_url: "",
-  //   topicIds: [],
-  //   favorites: 0,
-  //   // selectedTopics: []
-  // });
-
-  // const handleChange = (e) => {
-  //   setInputForm({ ...inputForm, [e.target.name]: e.target.value });
-  // };
-
   const [errors, setErrors] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [website_url, setWebsiteUrl] = useState("");
   const [topicIds, setTopicIds] = useState([]);
   const [favorites, setFavorites] = useState(0);
-  //   const [selectedTopics, setSelectedTopics] = useState([]);
 
   const addNewResource = (newResource) => {
     setResources((resources) => [newResource, ...resources]);
@@ -55,12 +41,10 @@ const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        // inputForm
         resource: {
           title,
           description,
           website_url,
-          // topic_ids: selectedTopics.map((topic) => topic.id),
           topic_ids: topicIds,
           favorites,
         },
@@ -74,7 +58,6 @@ const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
       } else {
         res.json().then((data) => {
           addNewResource(data);
-          // setInputForm({ title: "", website_url: "", description: "" });
           setTitle("");
           setDescription("");
           setWebsiteUrl("");
@@ -86,26 +69,12 @@ const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
     });
   };
 
-  // const handleChange = (event) => {
-  //   const { value } = event.target;
-  //   const selectedTopic = topics.find((topic) => topic.id === Number(value));
-
-  //   if (event.target.checked) {
-  //     setSelectedTopics([...selectedTopics, selectedTopic]);
-  //   } else {
-  //     setSelectedTopics(
-  //       selectedTopics.filter((topic) => topic.id !== selectedTopic.id)
-  //     );
-  //   }
-  // };
-
   return (
     <>
       <ThemeProvider theme={theme}>
         <Container
           sx={{
             mt: 10,
-            // mb: 0,
             position: "relative",
             display: "flex",
             flexDirection: "column",
@@ -122,7 +91,6 @@ const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
           </Typography>
         </Container>
       </ThemeProvider>
-
       <Container
         sx={{
           mb: 5,
@@ -143,21 +111,7 @@ const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
           noValidate
           autoComplete="off"
           onSubmit={(e) => handleSubmit(e)}
-<<<<<<< HEAD
         >
-=======
-        ><div>
-        {/* <TextField
-          name="topic_id"
-          type="text"
-          placeholder="Enter topic_id"
-          value={inputForm.topicId}
-          onChange={handleChange}
-        />
-         */}
-         <p>topic id = {topicId}</p>
-      </div>
->>>>>>> f2ecb87df0533f54d71da415a311079dd2ad975d
           <div>
             <TextField
               name="title"
@@ -181,13 +135,10 @@ const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
               name="description"
               type="text"
               placeholder="Enter a description..."
-              // value={inputForm.description}
-              // onChange={handleChange}
               value={description}
               onChange={(event) => setDescription(event.target.value)}
             />
           </div>
-
           <label htmlFor="topicIds">choose a topic</label>
           <select
             id="topicIds"
@@ -208,19 +159,6 @@ const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
               </option>
             ))}
           </select>
-
-          {/* <label htmlFor="topics">Topics</label>
-        {topics.map((topic) => (
-          <div key={topic.id}>
-            <input
-              type="checkbox"
-              id={`topic-${topic.id}`}
-              value={topic.id}
-              onChange={handleChange}
-            />
-            <label htmlFor={`topic-${topic.id}`}>{topic.title}</label>
-          </div>
-        ))} */}
           <Button
             onClick={handleSubmit}
             disabled={false}
@@ -237,31 +175,6 @@ const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
           </Button>
         </Box>
       </Container>
-
-      {/* <form onSubmit={handleSubmit}>
-        <label htmlFor="title">title</label>
-        <input
-          type="text"
-          id="title"
-          value={title}
-          onChange={(event) => setTitle(event.target.value)}
-        />
-        <label htmlFor="website_url">websiteUrl</label>
-        <input
-          type="text"
-          id="website_url"
-          value={website_url}
-          onChange={(event) => setWebsiteUrl(event.target.value)}
-        />
-
-        <label htmlFor="description">Description</label>
-        <textarea
-          id="description"
-          value={description}
-          onChange={(event) => setDescription(event.target.value)}
-        />
-        <button type="submit">Create Resource</button>
-      </form> */}
     </>
   );
 };

@@ -9,15 +9,15 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Alert from '@mui/material/Alert';
+import Alert from "@mui/material/Alert";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FFF6FB',
+      main: "#FFF6FB",
     },
     secondary: {
-      main: '#A13E70',
+      main: "#A13E70",
     },
   },
 });
@@ -52,33 +52,6 @@ const SignupForm = ({ onLogin }) => {
 
   return (
     <>
-      {/* <form onSubmit={handleSignup}>
-        <label>username</label>
-        <input
-          type="text"
-          autoComplete="off"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label>password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete="current-password"
-        />
-        <label>email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          autoComplete="current-email"
-        />
-        <button type="submit">sign up</button>
-        {errors.map((err) => (
-          <error key={err}>{err}</error>
-        ))}
-      </form> */}
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
@@ -150,11 +123,11 @@ const SignupForm = ({ onLogin }) => {
               >
                 Sign Up
               </Button>
-          
-            {errors.map((err) => (
-              <Alert severity="error">
-              <error key={err}>{err}</error></Alert>
-            ))}
+              {errors.map((err) => (
+                <Alert severity="error">
+                  <error key={err}>{err}</error>
+                </Alert>
+              ))}
             </Box>
           </Box>
         </Container>

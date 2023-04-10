@@ -24,15 +24,14 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: [
-    ]
+    fontFamily: [],
   },
 });
 
 const MenuItem = withStyles({
   root: {
-    justifyContent: "center"
-  }
+    justifyContent: "center",
+  },
 })(MuiMenuItem);
 
 const Navbar = ({ onLogout }) => {
@@ -95,11 +94,15 @@ const Navbar = ({ onLogout }) => {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                   >
-                    <MenuItem >
-                      <Link href="/" underline="none">home</Link>
+                    <MenuItem>
+                      <Link href="/" underline="none">
+                        home
+                      </Link>
                     </MenuItem>
                     <MenuItem>
-                      <Link href="/resources"underline="none">resources</Link>
+                      <Link href="/resources" underline="none">
+                        resources
+                      </Link>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
                       <Link href="/topics" underline="none">
@@ -107,7 +110,9 @@ const Navbar = ({ onLogout }) => {
                       </Link>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <Link href="/help" underline="none">ask ChatGPT</Link>
+                      <Link href="/help" underline="none">
+                        ask ChatGPT
+                      </Link>
                     </MenuItem>
                   </Menu>
                 </div>

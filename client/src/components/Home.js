@@ -43,15 +43,6 @@ const number = {
 };
 
 const Home = ({ topics, setTopics }) => {
-  // const [mostPopular, setMostPopular] = useState("");
-
-  // const handleButtonClick = () => {
-  //   fetch("/resources/mostpopular")
-  //     .then((r) => r.json())
-  //     .then((r) => setMostPopular(r))
-  //     .then(console.log(mostPopular));
-  // };
-
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -200,17 +191,13 @@ const Home = ({ topics, setTopics }) => {
                 backgroundColor: "#A13E70",
                 padding: "10px 20px",
                 color: "#FFFFFF",
-                borderRadius: 5
+                borderRadius: 5,
               }}
               variant="contained"
             >
               see topics
             </Button>
             <TopicList topics={topics} setTopics={setTopics} />
-
-            {/* <div>Most popular resource</div>
-          <button onClick={handleButtonClick}>most popular</button>
-          {mostPopular.title} */}
           </Container>
         </Box>
       </ThemeProvider>

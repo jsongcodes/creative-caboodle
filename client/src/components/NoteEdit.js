@@ -111,19 +111,7 @@ const NoteEdit = ({ note, handleDeleteNote, handleUpdateNote }) => {
             </Box>
           </Container>
         </>
-      ) : // <form >
-      //   <label>edit:</label>
-      //   <input
-      //     name="edit-note"
-      //     type="text"
-      //     placeholder={content}
-      //     value={content}
-      //     onChange={(e) => setContent(e.target.value)}
-      //     className="edit-comment-input"
-      //   />
-      // </form>
-
-      null}
+      ) : null}
     </>
   );
 };

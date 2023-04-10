@@ -4,13 +4,12 @@ const TopicForm = ({ addNewTopic, topics }) => {
   const [inputForm, setInputForm] = useState({
     title: "",
     image_url: "",
-    description: ""
+    description: "",
   });
 
   const handleChange = (e) => {
     setInputForm({ ...inputForm, [e.target.name]: e.target.value });
   };
-
 
   return (
     <div className="main-container">

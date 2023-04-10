@@ -33,7 +33,6 @@ const Login = ({ onLogin }) => {
               >
                 sign up
               </Button>
-              {/* <button onClick={() => setShowLogin(false)}>sign up</button> */}
             </>
           ) : (
             <>
@@ -47,7 +46,6 @@ const Login = ({ onLogin }) => {
               >
                 log in
               </Button>
-              {/* <button onClick={() => setShowLogin(true)}>log in</button> */}
             </>
           )}
         </Box>

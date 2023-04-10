@@ -23,18 +23,11 @@ const theme = createTheme({
 
 const ResourceList = ({ setResources, resources, topics, setTopics }) => {
   const [inputForm, setInputForm] = useState("");
-  const [mostPopular, setMostPopular] = useState("");
-
-  const handleButtonClick = () => {
-    fetch("/resources/mostpopular")
-      .then((r) => r.json())
-      .then((r) => setMostPopular(r))
-  };
 
   useEffect(() => {
     fetch(`/resources`)
       .then((res) => res.json())
-      .then((resources) => setResources(resources))
+      .then((resources) => setResources(resources));
   }, []);
 
   const handleChange = (e) => {
@@ -65,23 +58,9 @@ const ResourceList = ({ setResources, resources, topics, setTopics }) => {
               onChange={handleChange}
             />
           </div>
-          <div className="description"><Button
-
-            onClick={handleButtonClick}
-            style={{
-              backgroundColor: "#A13E70",
-              padding: "10px 20px",
-              color: "#FFFFFF",
-              borderRadius: 5
-            }}
-            variant="contained"
-          >
-            most popular
-          </Button>
-          <div><Link href={`/resources/${mostPopular.id}`} className="cardTitle" underline="none">{mostPopular.title}</Link></div></div>
         </Box>
       </Container>
-      <div className="home-class">
+      <div>
         {Array.from(Array).map((_, index) => (
           <Grid
             key={index}
@@ -101,7 +80,6 @@ const ResourceList = ({ setResources, resources, topics, setTopics }) => {
                   resource={resource}
                   setResources={setResources}
                   resources={resources}
-                  // resourceId={resource.id}
                 />
                 <meta property="og:url" content={resource.website_url}></meta>
               </Card>
@@ -109,7 +87,12 @@ const ResourceList = ({ setResources, resources, topics, setTopics }) => {
           </Grid>
         ))}
       </div>
-      <ResourceForm resources={resources} setResources={setResources} topics={topics} setTopics={setTopics}/>
+      <ResourceForm
+        resources={resources}
+        setResources={setResources}
+        topics={topics}
+        setTopics={setTopics}
+      />
     </ThemeProvider>
   );
 };

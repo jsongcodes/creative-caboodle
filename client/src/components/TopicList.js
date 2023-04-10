@@ -5,12 +5,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 
 const TopicList = ({ topics, setTopics }) => {
-  // useEffect(() => {
-  //   fetch("/topics")
-  //     .then((r) => r.json())
-  //     .then(setTopics);
-  // }, []);
-
   return (
     <>
       {Array.from(Array).map((_, index) => (

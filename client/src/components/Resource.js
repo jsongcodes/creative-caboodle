@@ -5,13 +5,10 @@ import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
-// import {useContext } from "react"
-// import {UserContext} from "../context/user";
 
 const Resource = ({ resource = {}, setResources }) => {
   const { id, title, description, website_url } = resource;
   const [notes, setNotes] = useState([]);
-  // const [user, setUser] = useContext(UserContext);
 
   const addNewNote = (newNote) => {
     setNotes((notes) => [newNote, ...notes]);
@@ -34,7 +31,7 @@ const Resource = ({ resource = {}, setResources }) => {
               style={{
                 backgroundColor: "#FFF6FB",
                 padding: "10px 20px",
-                borderRadius: 5
+                borderRadius: 5,
               }}
               variant="contained"
             >

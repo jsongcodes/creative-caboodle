@@ -21,9 +21,6 @@ const ResourceCard = ({ resource, topicId, resources, setResources }) => {
         setResources((resources) => {
           let updatedResources = resources.map((resource) => {
             if (resource.id === id) {
-              // setFavorite(true)
-              // setNumberOfFavorites(resource.favorites + 1)
-              // resource.favorites = (numberOfFavorites + 1)
               resource.favorites = favorites + 1;
             }
             return resource;
@@ -36,9 +33,7 @@ const ResourceCard = ({ resource, topicId, resources, setResources }) => {
 
   return (
     <div>
-      <Button onClick={handleFavoriteClick} >
-        ♡
-      </Button>
+      <Button onClick={handleFavoriteClick}>♡</Button>
       <Link to={`/resources/${id}`} className="cardTitle">
         {title}
       </Link>
