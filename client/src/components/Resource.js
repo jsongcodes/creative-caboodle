@@ -1,7 +1,6 @@
 import NoteList from "./NoteList";
 import NoteForm from "./NoteForm";
-import { useState, useContext } from "react";
-import Link from "@mui/material/Link";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";

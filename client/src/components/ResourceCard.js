@@ -4,7 +4,6 @@ import Button from "@mui/material/Button";
 
 const ResourceCard = ({ resource, topicId, resources, setResources }) => {
   const { id, title, description, website_url, favorites } = resource;
-  const [favorite, setFavorite] = useState(false);
 
   const handleFavoriteClick = () => {
     fetch(`/resources/${id}`, {
