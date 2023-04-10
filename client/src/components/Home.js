@@ -28,31 +28,29 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: [
-    ]
+    fontFamily: [],
   },
   background: {
-    default: "#A13E70"
+    default: "#A13E70",
   },
 });
 
 const number = {
   fontSize: 30,
-  fontFamily: 'Coiny',
+  fontFamily: "Coiny",
   color: "#A13E70",
   fontWeight: "medium",
-  
 };
 
 const Home = ({ topics, setTopics }) => {
-  const [mostPopular, setMostPopular] = useState("");
+  // const [mostPopular, setMostPopular] = useState("");
 
-  const handleButtonClick = () => {
-    fetch("/resources/mostpopular")
-      .then((r) => r.json())
-      .then((r) => setMostPopular(r))
-      .then(console.log(mostPopular));
-  };
+  // const handleButtonClick = () => {
+  //   fetch("/resources/mostpopular")
+  //     .then((r) => r.json())
+  //     .then((r) => setMostPopular(r))
+  //     .then(console.log(mostPopular));
+  // };
 
   return (
     <>
@@ -116,7 +114,12 @@ const Home = ({ topics, setTopics }) => {
                 opacity: 0.7,
               }}
             />
-            <Typography className="font" variant="h4" component="h2" sx={{ mb: 7, color: "#A13E70"}}>
+            <Typography
+              className="font"
+              variant="h4"
+              component="h2"
+              sx={{ mb: 7, color: "#A13E70" }}
+            >
               how it works
             </Typography>
             <div>
@@ -130,7 +133,10 @@ const Home = ({ topics, setTopics }) => {
                       alt="topic"
                       sx={{ height: 70, mt: 5 }}
                     />
-                    <Typography variant="h6" sx={{ my: 3, textAlign: "center" }}>
+                    <Typography
+                      variant="h6"
+                      sx={{ my: 3, textAlign: "center" }}
+                    >
                       choose a topic
                     </Typography>
                   </Box>
@@ -144,7 +150,10 @@ const Home = ({ topics, setTopics }) => {
                       alt="find resource"
                       sx={{ height: 70, mt: 5 }}
                     />
-                    <Typography variant="h6" sx={{ my: 3, textAlign: "center" }}>
+                    <Typography
+                      variant="h6"
+                      sx={{ my: 3, textAlign: "center" }}
+                    >
                       find resources online
                     </Typography>
                   </Box>
@@ -158,7 +167,10 @@ const Home = ({ topics, setTopics }) => {
                       alt="upload resource"
                       sx={{ height: 70, mt: 5 }}
                     />
-                    <Typography variant="h6" sx={{ my: 3, textAlign: "center" }}>
+                    <Typography
+                      variant="h6"
+                      sx={{ my: 3, textAlign: "center" }}
+                    >
                       upload the resources
                     </Typography>
                   </Box>
@@ -172,33 +184,34 @@ const Home = ({ topics, setTopics }) => {
                       alt="take notes"
                       sx={{ height: 70, mt: 5 }}
                     />
-                    <Typography variant="h6" sx={{ my: 3, textAlign: "center" }}>
+                    <Typography
+                      variant="h6"
+                      sx={{ my: 3, textAlign: "center" }}
+                    >
                       take personal notes on resources
                     </Typography>
                   </Box>
                 </Grid>
               </Grid>
             </div>
-
             <Button
-              color="secondary"
-              size="large"
-              variant="contained"
               href="/topics"
-              sx={{ my: 3 }}
+              style={{
+                backgroundColor: "#A13E70",
+                padding: "10px 20px",
+                color: "#FFFFFF",
+                borderRadius: 5
+              }}
+              variant="contained"
             >
               see topics
             </Button>
-        <TopicList topics={topics} setTopics={setTopics} />
-        <Box
-          component="section"
-          sx={{ overflow: "hidden", bgcolor: "#FFF6FB" }}
-        >
-          <div>Most popular resource</div>
+            <TopicList topics={topics} setTopics={setTopics} />
+
+            {/* <div>Most popular resource</div>
           <button onClick={handleButtonClick}>most popular</button>
-          {mostPopular.title}
-        </Box>
-        </Container>
+          {mostPopular.title} */}
+          </Container>
         </Box>
       </ThemeProvider>
     </>
