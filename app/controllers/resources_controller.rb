@@ -9,67 +9,11 @@ class ResourcesController < ApplicationController
         render json: resource, status: :ok
     end
 
-    # def create
-    #     @topic = Topic.find(params[:id])
-    #     resource = @topic.resources.create!(resource_params)
-    #     render json: resource, status: :created
-    #   end
-
-      def create
+    def create
         @resource = Resource.create!(resource_params)
         @resource.topics << Topic.where(id: params[:topic_ids])
         render json: @resource, status: :created
-      end
-
-    # def create
-    #     # resource = @current_user.resources.create!(resource_params)
-    #     resource = Resource.create!(resource_params)
-    #     # take obj params out of the 
-    #     # dropdown of topics iterate through those ids to create topic
-    #     # if it doesn't exist, it will need to be created 
-    #     # look through documentation for has_many associations
-    #     render json: resource, status: :created
-    # end
-
-   
-    # def create
-    #     resource_params = params.require(:resource).permit(:title, :website_url, :description, topics_attributes: [:topic_id])
-      
-    #     @resource = Resource.new(resource_params)
-      
-    #     if @resource.save
-    #       render json: @resource, status: :created
-    #     else
-    #       render json: { errors: @resource.errors.full_messages }, status: :unprocessable_entity
-    #     end
-    #   end
-
-    # def create
-    #     @resource = Resource.new(resource_params)
-    
-    #     # Use nested attributes to create resources_topics records for each selected topic
-    #     if params[:topics].present?
-    #       topics_attributes = params[:topics].map { |topic_id| { topic_id: topic_id } }
-    #       @resource.resources_topics_attributes = topics_attributes
-    #     end
-    
-    #     if @resource.save
-    #       render json: @resource, status: :created
-    #     else
-    #       render json: @resource.errors, status: :unprocessable_entity
-    #     end
-    #   end
-
-    # def create_resources_topic
-    #     resource = Resource.find(params[:id])
-    #     resources_topic = ResourcesTopic.new(resources_topic_params)
-    #     resource.resources_topic << resources_topic
-    #     if resources_topic.save
-    #         render json: resources_topic, status: :created
-    #     else
-    #         render json: resources_topic.errors, status: :unprocessable_entity
-    #     end
-    # end
+    end
 
     def update
         resource = find_resource
@@ -80,15 +24,6 @@ class ResourcesController < ApplicationController
     def notes
         notes = Resource.find(params[:id]).notes
         render json: notes, status: :ok
-
-                # notes = Resource.find(params[:id]).notes
-        # notes.map do |note|
-        #     if note.user_id == @current_user.id
-        #         notes = note
-        #         render json: notes, status: :ok
-        #     end
-            
-        # end
     end
 
     def mostpopular
@@ -100,30 +35,13 @@ class ResourcesController < ApplicationController
         render json: highest, status: :ok
     end
 
-
     private 
-
-    # def resources_topic_params
-    #     params.require(:resources_topic).permit(:topic_id)
-    # end
 
     def find_resource
         Resource.find(params[:id])
     end
 
-
     def resource_params
         params.require(:resource).permit(:website_url, :title, :favorites, :description, topic_ids: [])
-        # :topic_id
       end
-
-    # def resource_params
-    #     params.permit(:website_url, :title, :description)
-    # end
-
-    # def resource_params
-    #     params.require(:resource).permit(:title, :description, resources_topics_attributes: [:id, :topic_id])
-    #   end
-
-
 end

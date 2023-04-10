@@ -1,21 +1,11 @@
 class NotesController < ApplicationController    
     def index
-        # notes = Note.all
-        # notes = Note.find_by(user_id: params[:user_id])
-        # if @current_user == note.user
-        #     @current_user.notes
-        #     render json: note, status: :ok
-        # else
-        #     render json: { error: "Not authorized" }, status: :unauthorized
-        # end
         notes = @current_user.notes
         render json: notes, status: :ok
     end
 
     def show
         note = find_note
-        # note = @current_user.notes.find(params[:id])
-        # render json: note, status: :ok
         if @current_user == note.user
             render json: note, status: :accepted
         else
