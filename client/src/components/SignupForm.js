@@ -7,7 +7,6 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Alert from "@mui/material/Alert";
 import { useHistory } from "react-router-dom";
@@ -76,7 +75,6 @@ const SignupForm = ({ onLogin }) => {
               backgroundPosition: "center",
             }}
           >
-            {" "}
             <Typography
               color="inherit"
               align="center"

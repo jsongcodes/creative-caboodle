@@ -2,7 +2,6 @@ import TopicCard from "./TopicCard";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
-// import TopicForm from "./TopicForm";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
@@ -46,7 +45,6 @@ const TopicList = ({ topics, setTopics }) => {
           add resource
         </Button>
       </Box>
-      {/* <TopicForm topics={topics} setTopics={setTopics}/> */}
     </>
   );
 };

@@ -22,12 +22,6 @@ class TopicsController < ApplicationController
         render json: @topic, status: :created
     end
 
-        # def create
-    #     # topic = @current_user.topics.create!(topic_params)
-    #     topic = topics.create!(topic_params)
-    #     render json: topic, status: :created
-    # end
-
     private 
 
     def find_topic

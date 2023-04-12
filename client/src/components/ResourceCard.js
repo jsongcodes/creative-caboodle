@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import Button from "@mui/material/Button";
 
 const ResourceCard = ({ resource, topicId, resources, setResources }) => {
@@ -14,14 +13,12 @@ const ResourceCard = ({ resource, topicId, resources, setResources }) => {
       if (!res.ok) {
         res.json().then((err) => {
           alert(err.errors);
-          // return resources;
         });
       } else {
         setResources((prevResources) => {
-          // Use functional update pattern to update state
           return prevResources.map((resource) => {
             if (resource.id === id) {
-              return { ...resource, favorites: resource.favorites + 1 }; // Update favorites value
+              return { ...resource, favorites: resource.favorites + 1 };
             }
             return resource;
           });

@@ -48,7 +48,7 @@ const Home = ({ topics, setTopics }) => {
         <ProductHeroLayout
           sxBackground={{
             backgroundImage: `url(${backgroundImage})`,
-            backgroundColor: "#7fc7d9", // Average color of the background image.
+            backgroundColor: "#7fc7d9", 
             backgroundPosition: "center",
           }}
         >
@@ -64,7 +64,7 @@ const Home = ({ topics, setTopics }) => {
             marked="center"
             id="home"
           >
-            creative caboodle{" "}
+            creative caboodle
           </Typography>
           <Typography
             color="inherit"

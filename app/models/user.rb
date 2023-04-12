@@ -4,7 +4,6 @@ class User < ApplicationRecord
     has_many :notes
     has_many :resources, through: :notes
 
-    # has_many :poly_users, as: :creator
     has_many :resources
 
     validates :username, presence: true, uniqueness: true

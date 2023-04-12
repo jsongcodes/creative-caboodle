@@ -1,9 +1,7 @@
 import { useState, createContext } from "react";
 
-// create the context object
 const UserContext = createContext();
 
-// create the context provider (component)
 function UserProvider({ children }) {
   const [user, setUser] = useState(null);
 
@@ -14,10 +12,4 @@ function UserProvider({ children }) {
   );
 }
 
-// export
 export { UserContext, UserProvider };
-
-// ReactDOM.render(
-//    <UserProvider>
-//      <App />
-//    </UserProvider>

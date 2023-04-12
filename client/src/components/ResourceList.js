@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import ResourceCard from "./ResourceCard";
-import ResourceForm from "./ResourceForm";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 
 const theme = createTheme({
@@ -101,17 +99,6 @@ const ResourceList = ({ setResources, resources, topics, setTopics }) => {
           add resource
         </Button>
       </Box>
-
-      {/* <Switch>
-        <Route exact path="/newresource">
-          <ResourceForm
-            resources={resources}
-            setResources={setResources}
-            topics={topics}
-            setTopics={setTopics}
-          />
-        </Route>
-      </Switch> */}
     </ThemeProvider>
   );
 };

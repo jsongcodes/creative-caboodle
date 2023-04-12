@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
 const MyResources = () => {
   const [myResources, setMyResources] = useState([]);
-  const [likedResources, setLikedResources] = useState([]);
 
   useEffect(() => {
     fetch("/my_resources")

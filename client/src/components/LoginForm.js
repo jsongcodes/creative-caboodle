@@ -7,13 +7,9 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Alert from "@mui/material/Alert";
 import { useHistory } from "react-router-dom";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 
@@ -139,7 +135,6 @@ const LoginForm = ({ setShowLogin, onLogin }) => {
               </Button>
               <Box
           sx={{
-            // marginTop: 8,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",

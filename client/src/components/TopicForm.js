@@ -6,10 +6,6 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
 import * as React from "react";
 
 const theme = createTheme({
@@ -131,38 +127,6 @@ const TopicForm = ({ topics, setTopics }) => {
               onChange={handleChange}
             />
           </div>
-          {/* <form className="create-comment" onSubmit={(e) => handleSubmit(e)}> */}
-          {/* <div>
-              <input
-                className="comment-input"
-                name="title"
-                type="text"
-                placeholder="Enter a title..."
-                value={inputForm.title}
-                onChange={handleChange}
-              ></input>
-            </div> */}
-          {/* <div>
-              <input
-                className="comment-input"
-                name="image_url"
-                type="text"
-                placeholder="Enter a image url..."
-                value={inputForm.image_url}
-                onChange={handleChange}
-              ></input>
-            </div> */}
-          {/* <div>
-              <input
-                className="comment-input"
-                name="description"
-                type="text"
-                placeholder="Enter a body..."
-                value={inputForm.description}
-                onChange={handleChange}
-              ></input>
-            </div> */}
-          {/* <input className="submit-button" type="submit" value="topic" /> */}
           <Button
             onClick={handleSubmit}
             disabled={false}
@@ -177,7 +141,6 @@ const TopicForm = ({ topics, setTopics }) => {
           >
             submit
           </Button>
-          {/* </form> */}
         </Box>
       </Container>
     </div>

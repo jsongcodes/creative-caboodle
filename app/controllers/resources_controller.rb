@@ -12,14 +12,6 @@ class ResourcesController < ApplicationController
     def create
         @resource = @current_user.resources.create!(resource_params)
         @resource.topics << Topic.where(id: params[:topic_ids])
-
-#         # @poly_user = PolyUser.create!(creator: @current_user, creator_type: 'User', creator_id: @current_user.id)
-
-#         @resource.creator = PolyUser.find_or_create_by(creator_type: 'User', creator_id: current_user.id)
-      
-
-#   end
-
         render json: @resource, status: :created
     end
 

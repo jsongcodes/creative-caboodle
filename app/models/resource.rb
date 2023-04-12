@@ -5,6 +5,5 @@ class Resource < ApplicationRecord
     has_many :notes
     has_many :users, through: :notes
 
-    # has_many :poly_users, as: :creator
     belongs_to :user
 end

@@ -6,7 +6,6 @@ import CardMedia from "@mui/material/CardMedia";
 
 const Topic = ({ resources, setResources }) => {
   const [topicInfo, setTopicInfo] = useState([]);
-
   const params = useParams();
 
   useEffect(() => {
