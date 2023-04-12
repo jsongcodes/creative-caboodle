@@ -9,22 +9,22 @@ const ResourceCard = ({ resource, topicId, resources, setResources }) => {
     fetch(`/resources/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ favorites: favorites }),
+      body: JSON.stringify({ favorites: favorites + 1}),
     }).then((res) => {
       if (!res.ok) {
         res.json().then((err) => {
           alert(err.errors);
-          return resources;
+          // return resources;
         });
       } else {
-        setResources((resources) => {
-          let updatedResources = resources.map((resource) => {
+        setResources((prevResources) => {
+          // Use functional update pattern to update state
+          return prevResources.map((resource) => {
             if (resource.id === id) {
-              resource.favorites = favorites + 1;
+              return { ...resource, favorites: resource.favorites + 1 }; // Update favorites value
             }
             return resource;
           });
-          return updatedResources;
         });
       }
     });

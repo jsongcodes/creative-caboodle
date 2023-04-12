@@ -5,6 +5,12 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import * as React from "react";
+import { useHistory } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -30,6 +36,7 @@ const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
   const [website_url, setWebsiteUrl] = useState("");
   const [topicIds, setTopicIds] = useState([]);
   const [favorites, setFavorites] = useState(0);
+  const history = useHistory();
 
   const addNewResource = (newResource) => {
     setResources((resources) => [newResource, ...resources]);
@@ -64,6 +71,7 @@ const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
           setTopicIds([]);
           setFavorites(0);
           console.log("Resource created:", data);
+          history.push("/resources");
         });
       }
     });
@@ -139,26 +147,39 @@ const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
               onChange={(event) => setDescription(event.target.value)}
             />
           </div>
-          <label htmlFor="topicIds">choose a topic</label>
-          <select
-            id="topicIds"
-            multiple
-            value={topicIds}
-            onChange={(event) =>
-              setTopicIds(
-                Array.from(
-                  event.target.selectedOptions,
-                  (option) => option.value
-                )
-              )
-            }
-          >
-            {topics.map((topic) => (
-              <option key={topic.id} value={topic.id}>
-                {topic.title}
-              </option>
-            ))}
-          </select>
+          <FormControl sx={{ m: 1, width: "40ch" }}>
+            <InputLabel htmlFor="topicIds">choose a topic</InputLabel>
+            <Select
+              id="topicIds"
+              value={topicIds}
+              multiple
+              label="topic"
+              onChange={(event) => {
+                const selectedTopicIds = event.target.value;
+                setTopicIds(selectedTopicIds);
+              }}
+              renderValue={(selected) => (
+                <div>
+                  {selected.map((value) => (
+                    <MenuItem key={value} value={value}>
+                      {topics.find((topic) => topic.id === value)?.title}
+                    </MenuItem>
+                  ))}
+                </div>
+              )}
+            >
+              {topics.map((topic) => (
+                <MenuItem
+                  key={topic.id}
+                  value={topic.id}
+                  style={{ display: "block" }}
+                >
+                  {topic.title}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
           <Button
             onClick={handleSubmit}
             disabled={false}
@@ -173,6 +194,8 @@ const ResourceForm = ({ resources, setResources, topics, setTopics }) => {
           >
             submit
           </Button>
+          <Button href="/newtopic">Add New Topic</Button>
+
         </Box>
       </Container>
     </>

@@ -1,6 +1,6 @@
 import "../App.css";
 import { useState, useEffect, useContext } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import Navbar from "./Navbar";
 import TopicList from "./TopicList";
 import Login from "./Login";
@@ -11,12 +11,16 @@ import Home from "./Home";
 import { UserContext } from "../context/user";
 import Chat from "./Chat";
 import MuiAppBar from "@mui/material/AppBar";
+import TopicForm from "./TopicForm";
+import ResourceForm from "./ResourceForm";
+import MyResources from "./MyResources";
 
 const App = () => {
   const [user, setUser] = useContext(UserContext);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [topics, setTopics] = useState([]);
   const [resources, setResources] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     fetch("/me").then((res) => {
@@ -41,6 +45,7 @@ const App = () => {
 
   const handleLogout = () => {
     setUser(null);
+    history.push("/");
   };
 
   if (!user) return <Login onLogin={setUser} />;
@@ -81,6 +86,20 @@ const App = () => {
         </Route>
         <Route exact path="/help">
           <Chat />
+        </Route>
+        <Route exact path="/newtopic">
+          <TopicForm topics={topics} setTopics={setTopics} />
+        </Route>
+        <Route exact path="/newresource">
+          <ResourceForm
+            resources={resources}
+            setResources={setResources}
+            topics={topics}
+            setTopics={setTopics}
+          />
+        </Route>
+        <Route exact path="/myresources">
+          <MyResources />
         </Route>
       </Switch>
     </>

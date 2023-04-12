@@ -12,7 +12,7 @@ const API_KEY = process.env.REACT_APP_OPENAI_API_KEY
   function Chat() {
     const [messages, setMessages] = useState([
       {
-        message: "Hello, I'm ChatGPT! Ask me anything!",
+        message: "Hello, I'm ChatGPT! Ask me for resources on a topic!",
         sentTime: "just now",
         sender: "ChatGPT"
       }

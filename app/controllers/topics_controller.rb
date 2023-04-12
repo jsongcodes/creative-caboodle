@@ -17,9 +17,16 @@ class TopicsController < ApplicationController
     end
 
     def create
-        topic = Topic.create!(topic_params)
-        render json: topic, status: :created
+        @topic = Topic.create!(topic_params)
+        @topic.resources << Resource.where(id: params[:resource_ids])
+        render json: @topic, status: :created
     end
+
+        # def create
+    #     # topic = @current_user.topics.create!(topic_params)
+    #     topic = topics.create!(topic_params)
+    #     render json: topic, status: :created
+    # end
 
     private 
 
@@ -28,7 +35,9 @@ class TopicsController < ApplicationController
     end
 
     def topic_params
-        params.permit(
-            :title, :image_url, :description)
+        params.require(:topic).permit(
+            :title, :image_url, :description, resource_ids: [])
     end
+
+
 end

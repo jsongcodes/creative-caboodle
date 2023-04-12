@@ -1,14 +1,35 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-const TopicForm = ({ addNewTopic, topics }) => {
+const TopicForm = ({ topics, setTopics }) => {
   const [inputForm, setInputForm] = useState({
     title: "",
     image_url: "",
     description: "",
   });
+  const history = useHistory();
+
+  const addNewTopic = (newTopic) => {
+    setTopics((topics) => [newTopic, ...topics]);
+  };
 
   const handleChange = (e) => {
     setInputForm({ ...inputForm, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("/topics", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(inputForm),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        addNewTopic(data);
+        setInputForm({ title: "", image_url: "", description: ""});
+        history.push("/topics");
+      })
   };
 
   return (

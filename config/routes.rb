@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
+
+  get '/my_resources', to: 'resources#my_resources'
 end

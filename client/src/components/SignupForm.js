@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Alert from "@mui/material/Alert";
+import { useHistory } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -27,6 +28,7 @@ const SignupForm = ({ onLogin }) => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState([]);
+  const history = useHistory();
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -44,6 +46,7 @@ const SignupForm = ({ onLogin }) => {
     }).then((res) => {
       if (res.ok) {
         res.json().then((user) => onLogin(user));
+        history.push("/");
       } else {
         res.json().then((error) => setErrors(error.errors));
       }

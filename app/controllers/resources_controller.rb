@@ -12,6 +12,14 @@ class ResourcesController < ApplicationController
     def create
         @resource = Resource.create!(resource_params)
         @resource.topics << Topic.where(id: params[:topic_ids])
+
+#         # @poly_user = PolyUser.create!(creator: @current_user, creator_type: 'User', creator_id: @current_user.id)
+
+#         @resource.creator = PolyUser.find_or_create_by(creator_type: 'User', creator_id: current_user.id)
+      
+
+#   end
+
         render json: @resource, status: :created
     end
 
@@ -26,14 +34,22 @@ class ResourcesController < ApplicationController
         render json: notes, status: :ok
     end
 
-    def mostpopular
-        resources = Resource.all.each do |resource|
-            resource.favorites
-        end
-        sorted = resources.sort{|a, b| b <=> a}
-        highest = sorted.first
-        render json: highest, status: :ok
-    end
+    # def mostpopular
+    #     resources = Resource.all.each do |resource|
+    #         resource.favorites
+    #     end
+    #     sorted = resources.sort{|a, b| b <=> a}
+    #     highest = sorted.first
+    #     render json: highest, status: :ok
+    # end
+
+
+        # def my_resources
+        #     @uploaded_resources = Resource.joins(:poly_users).where(poly_users: { creator_type: 'User', creator_id: @current_user.id })
+        #     # @liked_resources = Resource.joins(:favorites, :poly_users).where(likes: { user_id: @current_user.id }, poly_users: { creator_type: 'User', creator_id: @current_user.id })
+        #     render json: { uploaded_resources: @uploaded_resources, liked_resources: @liked_resources }
+        #   end
+
 
     private 
 

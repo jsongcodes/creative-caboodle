@@ -7,6 +7,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useHistory } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 const theme = createTheme({
   palette: {
@@ -85,12 +87,31 @@ const ResourceList = ({ setResources, resources, topics, setTopics }) => {
           </Grid>
         ))}
       </div>
-      <ResourceForm
-        resources={resources}
-        setResources={setResources}
-        topics={topics}
-        setTopics={setTopics}
-      />
+      <Box textAlign="center" sx={{mt: 5}}>
+        <Button
+          href="/newresource"
+          style={{
+            backgroundColor: "#A13E70",
+            padding: "10px 20px",
+            color: "#FFFFFF",
+            borderRadius: 5,
+          }}
+          variant="contained"
+        >
+          add resource
+        </Button>
+      </Box>
+
+      {/* <Switch>
+        <Route exact path="/newresource">
+          <ResourceForm
+            resources={resources}
+            setResources={setResources}
+            topics={topics}
+            setTopics={setTopics}
+          />
+        </Route>
+      </Switch> */}
     </ThemeProvider>
   );
 };

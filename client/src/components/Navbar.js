@@ -52,7 +52,6 @@ const Navbar = ({ onLogout }) => {
       method: "DELETE",
     })
       .then((res) => {
-        console.log("hi");
         if (res.ok) {
           setUser(null);
         }
