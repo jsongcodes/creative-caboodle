@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_07_130744) do
+ActiveRecord::Schema.define(version: 2023_04_12_172419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,15 +28,6 @@ ActiveRecord::Schema.define(version: 2023_04_07_130744) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "poly_users", force: :cascade do |t|
-    t.text "content"
-    t.string "creator_type", null: false
-    t.bigint "creator_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["creator_type", "creator_id"], name: "index_poly_users_on_creator"
-  end
-
   create_table "resources", force: :cascade do |t|
     t.string "website_url"
     t.datetime "created_at", precision: 6, null: false
@@ -44,6 +35,7 @@ ActiveRecord::Schema.define(version: 2023_04_07_130744) do
     t.string "title"
     t.string "description"
     t.integer "favorites"
+    t.integer "user_id"
   end
 
   create_table "resources_topics", force: :cascade do |t|

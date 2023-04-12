@@ -1,37 +1,62 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 
 const MyResources = () => {
-  const [uploadedResources, setUploadedResources] = useState([]);
+  const [myResources, setMyResources] = useState([]);
   const [likedResources, setLikedResources] = useState([]);
 
   useEffect(() => {
-    // Fetch uploaded resources
     fetch("/my_resources")
       .then((response) => response.json())
-      .then((data) => setUploadedResources(data));
-
-    // // Fetch liked resources
-    // fetch("/my_liked_resources")
-    //   .then((response) => response.json())
-    //   .then((data) => setLikedResources(data));
+      .then((data) => setMyResources(data));
   }, []);
 
   return (
-    <div>
-      <h1>My Uploaded Resources</h1>
-      <ul>
-        {uploadedResources.map((resource) => (
-          <li key={resource.id}>{resource.name}</li>
-        ))}
-      </ul>
+    <Container
+      sx={{
+        mt: 10,
+        mb: 15,
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <h1 className="font" style={{ color: '#A13E70' }}>
+        my resources
+      </h1>
 
-      <h1>My Liked Resources</h1>
-      <ul>
-        {likedResources.map((resource) => (
-          <li key={resource.id}>{resource.name}</li>
-        ))}
-      </ul>
-    </div>
+      {Array.from(Array).map((_, index) => (
+        <Grid
+          key={index}
+          container
+          direction="row"
+          justifyContent="space-evenly"
+          margin="10px"
+          alignItems="center"
+        >
+          {myResources.map((resource) => (
+            <Card
+              key={resource.id}
+              sx={{ width: 400, height: 350, margin: "15px" }}
+            >
+              <h1 className="cardTitle">{resource.title}</h1>
+              <div className="description">link: {resource.website_url}</div>
+              <div className="description">
+                description: {resource.description}
+              </div>
+              <div className="description">likes: {resource.favorites}</div>
+
+              <meta property="og:url" content={resource.website_url}></meta>
+            </Card>
+          ))}
+        </Grid>
+      ))}
+    </Container>
   );
 };
 

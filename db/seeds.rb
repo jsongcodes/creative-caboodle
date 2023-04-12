@@ -65,19 +65,22 @@ resource1 = Resource.create(
     title: "Learn React In 30 Minutes",
     description: "youtube video that teaches React",
     website_url: "https://www.youtube.com/watch?v=hQAHSlTtcmY&ab_channel=WebDevSimplified",
-    favorites: 0
+    favorites: 0,
+    user_id: user1.id
     )
 resource2 = Resource.create(
     title: "Building the backend for a full stack web app",
     description: "blog that explains how to build the backend for a full stack app",
     website_url: "https://dev.to/jsongcodes/building-a-backend-for-a-full-stack-web-app-4if",
-    favorites: 1
+    favorites: 1,
+    user_id: user2.id
     )
 resource3 = Resource.create(
     title: "Communication 101 & conflict resolution",
     description: "podcast to help you become better at communicating and resolving conflicts",
     website_url: "https://open.spotify.com/episode/6tEUG2LYIiqIOVjfFDNjls",
-    favorites: 2
+    favorites: 2,
+    user_id: user3.id
     )
 
 puts "seeding notes..."

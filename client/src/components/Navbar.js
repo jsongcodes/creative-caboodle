@@ -98,6 +98,11 @@ const Navbar = ({ onLogout }) => {
                         home
                       </Link>
                     </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <Link href="/my_resources" underline="none">
+                        my resources
+                      </Link>
+                    </MenuItem>
                     <MenuItem>
                       <Link href="/resources" underline="none">
                         resources

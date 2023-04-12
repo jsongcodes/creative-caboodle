@@ -11,11 +11,11 @@ const Login = ({ onLogin }) => {
 
   return (
     <>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
+      {/* <Container component="main" maxWidth="xs"> */}
+        {/* <CssBaseline /> */}
         <Box
           sx={{
-            marginTop: 8,
+            // marginTop: 8,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -23,8 +23,8 @@ const Login = ({ onLogin }) => {
         >
           {showLogin ? (
             <>
-              <LoginForm onLogin={onLogin} />
-              <Button
+              <LoginForm setShowLogin={setShowLogin} onLogin={onLogin} />
+              {/* <Button
                 onClick={() => setShowLogin(false)}
                 disabled={false}
                 size="small"
@@ -32,7 +32,7 @@ const Login = ({ onLogin }) => {
                 type="submit"
               >
                 sign up
-              </Button>
+              </Button> */}
             </>
           ) : (
             <>
@@ -49,7 +49,7 @@ const Login = ({ onLogin }) => {
             </>
           )}
         </Box>
-      </Container>
+      {/* </Container> */}
     </>
   );
 };

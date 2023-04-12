@@ -10,7 +10,7 @@ class ResourcesController < ApplicationController
     end
 
     def create
-        @resource = Resource.create!(resource_params)
+        @resource = @current_user.resources.create!(resource_params)
         @resource.topics << Topic.where(id: params[:topic_ids])
 
 #         # @poly_user = PolyUser.create!(creator: @current_user, creator_type: 'User', creator_id: @current_user.id)
@@ -44,12 +44,10 @@ class ResourcesController < ApplicationController
     # end
 
 
-        # def my_resources
-        #     @uploaded_resources = Resource.joins(:poly_users).where(poly_users: { creator_type: 'User', creator_id: @current_user.id })
-        #     # @liked_resources = Resource.joins(:favorites, :poly_users).where(likes: { user_id: @current_user.id }, poly_users: { creator_type: 'User', creator_id: @current_user.id })
-        #     render json: { uploaded_resources: @uploaded_resources, liked_resources: @liked_resources }
-        #   end
-
+    def my_resources
+        @my_resources = @current_user.resources
+        render json: @my_resources
+      end
 
     private 
 

@@ -98,7 +98,7 @@ const App = () => {
             setTopics={setTopics}
           />
         </Route>
-        <Route exact path="/myresources">
+        <Route exact path="/my_resources">
           <MyResources />
         </Route>
       </Switch>
